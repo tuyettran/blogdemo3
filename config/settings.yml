@@ -1,0 +1,14 @@
+user:
+  full_name:
+    max_length: 50
+  phone_number:
+    max_length: 13
+  avatar:
+    max_size: 5
+post:
+  title:
+    max_length: 100
+  content:
+    max_length: 3000
+tag:
+  max_length: 50
