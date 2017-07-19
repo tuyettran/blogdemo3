@@ -1,6 +1,24 @@
 en:
   layouts:
     blogdemo: "Blog demo"
+    header:
+      log_in: "Log in"
+      registration: "Registration"
+      mini_blog: "MINIBLOG"
+      menu: "Menu"
+      home: "Home"
+    footer:
+      from-framgia: "2017 © Framgia training"
+      rails-tutorial: "Rails tutorial"
+      framgia-hanoi: "Framgia Ha Noi"
+    application:
+      base_title: "MiniBlog"
   user:
     avatar:
       too_big_file: "Avatar image should less than 5MB"
+  static_pages:
+    home:
+      welcome: "WELCOME TO THE WEB BLOG!"
+      introduction: "In the Web Blog, you can create your own blogs, \
+        follow other and show, comment their blogs.\
+        You can also search for any topic or user you want"

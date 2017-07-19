@@ -1,0 +1,42 @@
+@import 'bootstrap';
+@import 'colors';
+
+.mini-blog-logo {
+  color: $orange;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.footer {
+  background-color: $white;
+  bottom: 0;
+  color: $black;
+  position: fixed;
+
+  a {
+    color: $orange;
+  }
+}
+
+.quote-v1 {
+  background-color: $gray;
+  font-size: 20px;
+  margin-top: 30px;
+  padding: 20px 30px;
+
+  .welcome {
+    font-weight: bold;
+  }
+}
+
+.mobi-toggler:hover {
+  text-decoration: none;
+}
+
+.mobi-toggler {
+  border: 1px solid $gray;
+  font-weight: bold;
+  padding: 5px;
+  text-decoration: none;
+  width: auto;
+}

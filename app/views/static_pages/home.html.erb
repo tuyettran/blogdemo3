@@ -1,0 +1,10 @@
+<div class="row quote-v1">
+  <div class="text-center">
+    <p class="welcome"><%= t ".welcome" %></p>
+    <p><%= t ".introduction" %></p>
+  </div>
+  <div class="text-center">
+    <%= link_to t(".register_now"), new_user_registration_path,
+      class: "btn-transparent register-now" %>
+  </div>
+</div>

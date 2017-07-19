@@ -463,8 +463,6 @@ body.page-header-fixed {
 .header .mobi-toggler {
   float: right;
   color: #D8D8D8;
-  width: 32px;
-  height: 32px;
   display: none;
   position: relative;
   background: #fff;

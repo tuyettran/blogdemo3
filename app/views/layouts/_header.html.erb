@@ -1,0 +1,21 @@
+<div class="pre-header">
+  <div class="container">
+    <div class="row">
+      <ul class="list-unstyled list-inline pull-right">
+        <li><%= link_to t(".log_in"), new_user_session_path %></li>
+        <li><%= link_to t(".registration"), new_user_registration_path %></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="header">
+  <div class="container">
+    <%= link_to t(".mini_blog"), root_path, class: "mini-blog-logo" %>
+    <%= link_to t(".menu"), "#", class: "mobi-toggler" %>
+    <div class="header-navigation pull-right font-transform-inherit">
+      <ul>
+        <li><%= link_to t(".home"), root_path %></li>
+      </ul>
+    </div>
+  </div>
+</div>
