@@ -6,7 +6,12 @@ git_source(:github) do |repo_name|
 end
 
 gem "coffee-rails", "~> 4.2"
+gem "config"
+gem "devise"
+gem "faker"
+gem "i18n-js", "3.0.0"
 gem "jbuilder", "~> 2.5"
+gem "mysql2"
 gem "puma", "~> 3.7"
 gem "rails", "~> 5.1.2"
 gem "sass-rails", "~> 5.0"
@@ -31,7 +36,7 @@ group :development, :test do
   gem "reek"
   gem "rspec"
   gem "rspec-collection_matchers"
-  gem "rspec-rails"
+  gem "rspec-rails", "~> 3.5"
   gem "rubocop", "~> 0.35.0", require: false
   gem "rubocop-checkstyle_formatter", require: false
   gem "scss_lint_reporter_checkstyle", require: false

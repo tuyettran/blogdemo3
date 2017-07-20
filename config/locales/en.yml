@@ -1,3 +1,6 @@
 en:
   layouts:
     blogdemo: "Blog demo"
+  user:
+    avatar:
+      too_big_file: "Avatar image should less than 5MB"
