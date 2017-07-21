@@ -6,13 +6,16 @@ git_source(:github) do |repo_name|
 end
 
 gem "bootstrap-sass", "~> 3.3.7"
+gem "carrierwave", "1.1.0"
 gem "coffee-rails", "~> 4.2"
 gem "config"
 gem "devise"
 gem "faker"
+gem "fog"
 gem "i18n-js", "3.0.0"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
+gem "mini_magick", "4.7.0"
 gem "mysql2"
 gem "puma", "~> 3.7"
 gem "rails", "~> 5.1.2"

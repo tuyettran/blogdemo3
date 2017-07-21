@@ -4,6 +4,8 @@ class User < ApplicationRecord
   enum role: [:member, :admin]
   enum gender: [:male, :female, :other]
 
+  mount_uploader :avatar, AvatarUploader
+
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :active_relationships, class_name: Relationship.name,

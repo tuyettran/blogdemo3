@@ -7,6 +7,11 @@ en:
       mini_blog: "MINIBLOG"
       menu: "Menu"
       home: "Home"
+      sign_out: "Sign out"
+      edit_account: "Edit account"
+      my_blog: "My blog"
+      following: "Following"
+      account: "Account"
     footer:
       from-framgia: "2017 © Framgia training"
       rails-tutorial: "Rails tutorial"
@@ -20,5 +25,36 @@ en:
     home:
       welcome: "WELCOME TO THE WEB BLOG!"
       introduction: "In the Web Blog, you can create your own blogs, \
-        follow other and show, comment their blogs.\
-        You can also search for any topic or user you want"
+        follow other and show, comment their blogs."
+      search_able: "You can also search for any topic or user you want"
+  devise:
+    confirmations:
+      new:
+        resend: "Resend confirmation instructions"
+        submit: "Submit"
+    passwords:
+      edit:
+        change_pass: "Change your password"
+        new_password: "New password"
+        confirm_pass: "Confirm new password"
+        change: "Change my password"
+      new:
+        forgot_pass_title: "Forgot password"
+        forgot_pass: "Forgot your password?"
+        send_reset: "Send me reset password instructions"
+    registrations:
+      edit:
+        edit_account: "Edit account"
+        edit: "Edit "
+        current_wating: "Currently waiting confirmation for:"
+        leave_blank: "leave blank if you don't want to change it"
+        update: "Update"
+        cancel_account: "Cancel my account"
+        confirm: "Are you sure?"
+        back: "Back"
+      new:
+        sign_up: "Sign up"
+        characters_min: " characters minimum"
+    sessions:
+      new:
+        log_in: "Log in"

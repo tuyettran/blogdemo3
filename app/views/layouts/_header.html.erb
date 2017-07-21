@@ -1,20 +1,47 @@
-<div class="pre-header">
-  <div class="container">
-    <div class="row">
-      <ul class="list-unstyled list-inline pull-right">
-        <li><%= link_to t(".log_in"), new_user_session_path %></li>
-        <li><%= link_to t(".registration"), new_user_registration_path %></li>
-      </ul>
+<% if user_signed_in? %>
+  <div class="pre-header">
+    <div class="container">
+      <div class="row">
+        <span class="pull-right current-user-name">
+          <%= image_tag current_user.avatar.url, class: "avatar-header" %>
+          <%= current_user.full_name %> | <%= current_user.email %></span>
+      </div>
     </div>
   </div>
-</div>
+<% else %>
+  <div class="pre-header">
+    <div class="container">
+      <div class="row">
+        <ul class="list-unstyled list-inline pull-right">
+          <li><%= link_to t(".log_in"), new_user_session_path %></li>
+          <li><%= link_to t(".registration"), new_user_registration_path %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<% end %>
+
 <div class="header">
   <div class="container">
-    <%= link_to t(".mini_blog"), root_path, class: "mini-blog-logo" %>
+    <%= link_to image_tag("miniblog.png"), root_path, class: "mini-blog-logo" %>
     <%= link_to t(".menu"), "#", class: "mobi-toggler" %>
     <div class="header-navigation pull-right font-transform-inherit">
       <ul>
         <li><%= link_to t(".home"), root_path %></li>
+        <% if user_signed_in? %>
+          <li><%= link_to t(".my_blog"), "#" %></li>
+          <li><%= link_to t(".following"), "#" %></li>
+          <li class="dropdown">
+            <%= link_to t(".account"), "#", class: "dropdown-toggle",
+              data: {toggle: "dropdown", target: "#"} %>
+            <ul class="dropdown-menu">
+              <li><%= link_to t(".edit_account"),
+                edit_user_registration_path %></li>
+              <li><%= link_to t(".sign_out"), destroy_user_session_path,
+                method: :delete %></li>
+            </ul>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
