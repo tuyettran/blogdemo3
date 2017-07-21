@@ -1,2 +1,14 @@
-//= require_tree .
 //= require_self
+//= require animate
+//= require components
+//= require custom
+//= require font.min
+//= require jquery.fancybox
+//= require owl.carousel
+//= require orange
+//= require slider
+//= require style
+//= require style-responsive
+//= require uniform.default
+//= require bootstrap.min
+//= require_tree .
