@@ -7,7 +7,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string :full_name, null: false
       t.string :phone_number
       t.integer :role, null: false, default: 0
-      t.string :avatar
+      t.string :avatar, null: false, default: "avatar.png"
       t.integer :gender, null: false, default: 0
 
       ## Recoverable

@@ -1,10 +1,15 @@
-<div class="row quote-v1">
-  <div class="text-center">
-    <p class="welcome"><%= t ".welcome" %></p>
-    <p><%= t ".introduction" %></p>
+<% if !user_signed_in? %>
+  <div class="row quote-v1">
+    <div class="text-center">
+      <span class="welcome"><%= t ".welcome" %></span>
+      <span><%= t ".introduction" %></span>
+      <span><%= t ".search_able" %></span>
+    </div>
+    <span class="register-now">
+      <%= link_to t(".register_now"), new_user_registration_path,
+        class: "btn-transparent register-now" %>
+    </span>
   </div>
-  <div class="text-center">
-    <%= link_to t(".register_now"), new_user_registration_path,
-      class: "btn-transparent register-now" %>
-  </div>
-</div>
+<% else %>
+  <span class="welcome"><%= t ".welcome" %></span>
+<% end %>

@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 20170719035123) do
     t.string "full_name", null: false
     t.string "phone_number"
     t.integer "role", default: 0, null: false
-    t.string "avatar"
+    t.string "avatar", default: "avatar.png", null: false
     t.integer "gender", default: 0, null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"

@@ -3,26 +3,32 @@
 
 .mini-blog-logo {
   color: $orange;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: bold;
+}
+
+.mini-blog-logo:hover {
+  color: $orange;
+  text-decoration: none;
 }
 
 .footer {
   background-color: $white;
   bottom: 0;
   color: $black;
-  position: fixed;
+  font-size: 15px;
 
   a {
-    color: $orange;
+    color: $blue;
   }
 }
 
 .quote-v1 {
-  background-color: $gray;
+  background-color: $light-gray;
   font-size: 20px;
   margin-top: 30px;
   padding: 20px 30px;
+  text-align: center;
 
   .welcome {
     font-weight: bold;
@@ -39,4 +45,23 @@
   padding: 5px;
   text-decoration: none;
   width: auto;
+}
+
+.btn-orange {
+  background-color: $orange;
+  color: $white;
+}
+
+.alert-notice {
+  @include alert-variant($alert-success-bg, $alert-success-border,
+    $alert-success-text);
+}
+
+.current-user-name {
+  color: $blue;
+}
+
+.avatar-header {
+  height: 30px;
+  width: 30px;
 }
