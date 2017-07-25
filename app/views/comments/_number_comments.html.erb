@@ -1,0 +1,4 @@
+<% if post.comments.any? %>
+  <%= link_to t(".comments", number_comments: post.comments.size), post,
+    class: "number-comment-block" %>
+<% end %>
