@@ -27,6 +27,7 @@ en:
       introduction: "In the Web Blog, you can create your own blogs, \
         follow other and show, comment their blogs."
       search_able: "You can also search for any topic or user you want"
+      new_post: "Post"
   devise:
     confirmations:
       new:
@@ -58,3 +59,58 @@ en:
     sessions:
       new:
         log_in: "Log in"
+  shared:
+    user_info:
+      blog: "Go to my blog"
+      name: "Name: "
+      gender: "Gender: "
+      phone_number: "Phone number: "
+    post_form:
+      submit_post: "Submit"
+      title: "Title"
+      content: "Post content"
+    error_messages:
+      form_contains: "Form contains "
+      error: "errors:"
+    stats:
+      following: "%{number_following} following"
+      followers: "%{number_followers} following"
+  posts:
+    show:
+      edit: "Edit"
+      delete: "Delete"
+      sure: "Are you sure?"
+    post:
+      edit: "Edit"
+      delete: "Delete"
+      sure: "Are you sure?"
+    post_info:
+      edit: "Edit"
+      delete: "Delete"
+      sure: "Are you sure?"
+    destroy:
+      has_error: "Opps, there are something wrongs,\
+        can not destroy this post!"
+  relationships:
+    create:
+      has_error: "Opps, there are something wrongs, \
+        can not active relationships"
+    destroy:
+      has_error: "Opps, there are something wrongs, \
+        can not passtive relationships"
+  users:
+    feed:
+      following_feed: "Following feed"
+    following:
+      following: "Following"
+    followers:
+      followers: "Followers"
+    follow:
+      follow: "Follow"
+    unfollow:
+      unfollow: "Unfollow"
+    user_info:
+      posts: "posts"
+  comments:
+    number_comments:
+      comments: "%{number_comments} comments"

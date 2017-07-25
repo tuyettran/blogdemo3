@@ -1,0 +1,31 @@
+<div id="micropost-<%= @post.id %>">
+  <%= image_tag @post.user.avatar.url, class: "avatar-header" %>
+  <span class="user"><%= link_to @post.user.full_name, @post.user %></span>
+  <h1 class="text-center"><%= @post.title %></h1>
+  <span class="content">
+    <h4><%= @post.content.html_safe %></h4>
+  </span>
+  <span class="timestamp col-md-offset-5">
+    <%= @post.created_at %>
+    <span class = "number-comments">
+      <%= render "comments/number_comments", post: @post %>
+    </span>
+    <% if can? :update, @post %>
+      <button class="btn btn-link" data-toggle="modal"
+        data-target="#post-<%= @post.id %>"><%= t ".edit" %></button>
+      <%= render "posts/edit", post: @post %>
+    <% end %>
+    <% if can? :destroy, @post %>
+      <%= link_to t(".delete"), @post, method: :delete, remote: true,
+        data: {confirm: t(".sure")} %>
+    <% end %>
+  </span>
+  <span class="list-comments-<%= @post.id %>">
+    <%= render @comments, post: @post %>
+  </span>
+  <%= paginate @comments, theme: "twitter-bootstrap-3" %>
+  <% if can? :create, @comment %>
+    <%= render "comments/comment_form", post: @post,
+      comment: @comment %>
+  <% end %>
+</div>
