@@ -17,3 +17,4 @@
 //= require owl.carousel.min
 //= require app-layout
 //= require jquery.min
+//= require ckeditor/init

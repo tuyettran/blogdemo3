@@ -5,8 +5,11 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem "bootstrap-kaminari-views"
 gem "bootstrap-sass", "~> 3.3.7"
+gem "cancancan"
 gem "carrierwave", "1.1.0"
+gem "ckeditor", "~> 4.1"
 gem "coffee-rails", "~> 4.2"
 gem "config"
 gem "devise"
@@ -15,12 +18,12 @@ gem "fog"
 gem "i18n-js", "3.0.0"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
+gem "kaminari"
 gem "mini_magick", "4.7.0"
 gem "mysql2"
 gem "puma", "~> 3.7"
 gem "rails", "~> 5.1.2"
 gem "sass-rails", "~> 5.0"
-gem "sqlite3"
 gem "uglifier", ">= 1.3.0"
 
 group :development, :test do
