@@ -11,13 +11,18 @@
             <%= f.text_area :content, placeholder: t(".content"),
               class: "ckeditor"%>
           </div>
+          <div class="form-group create-tag">
+            <%= f.label :tags, class: "control-label bold" %>
+            <%= f.text_field :tag_list, data: {role: "tagsinput"}, class: "tags-list" %>
+          </div>
           <div><%= f.submit t(".submit_post"),
             class: "btn btn-orange submit-new-post" %></div>
         <% end %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn" data-dismiss="modal">
-          <%= t "posts.show.close" %></button>
+          <%= t "posts.show.close" %>
+        </button>
       </div>
     </div>
   </div>

@@ -19,6 +19,9 @@
       <%= link_to t(".delete"), @post, method: :delete, remote: true,
         data: {confirm: t(".sure")} %>
     <% end %>
+    <div class="tag-list">
+      <%= render "tags/tag_list", post: @post %>
+    </div>
   </span>
   <span class="list-comments-<%= @post.id %>">
     <%= render @comments, post: @post %>

@@ -1,12 +1,13 @@
 class PostsController < ApplicationController
-  before_action :load_post, except: :create
-  load_and_authorize_resource
+  include ResourcePost
+  authorize_resource
 
   def create
     @comment = Comment.new
     @post = current_user.posts.build post_params
+    @post.tag_list = params[:post][:tag_list]
 
-    if @post.save
+    if @post.create_post_tags
       post_js t(".success"), 200
     else
       post_respond
@@ -19,7 +20,9 @@ class PostsController < ApplicationController
   end
 
   def update
-    if @post.update_attributes post_params
+    @post.tag_list = params[:post][:tag_list]
+
+    if @post.update_post_tags post_params
       post_js t(".success"), 200
     else
       post_respond
@@ -31,29 +34,6 @@ class PostsController < ApplicationController
       post_js t(".success"), 200
     else
       post_respond
-    end
-  end
-
-  private
-
-  def load_post
-    @post = Post.find_by id: params[:id]
-    return if @post
-    render file: "public/404"
-  end
-
-  def post_respond
-    respond_to do |format|
-      format.html{redirect_to request.referrer || root_url}
-      format.js
-    end
-  end
-
-  def post_js message, status
-    @status = status
-    @message = message
-    respond_to do |format|
-      format.js
     end
   end
 end
