@@ -26,6 +26,26 @@ class User < ApplicationRecord
     length: {maximum: Settings.user.phone_number.max_length}
   validate :avatar_size
 
+  def follow other_user
+    following << other_user
+  end
+
+  def unfollow other_user
+    following.delete other_user
+  end
+
+  def following? other_user
+    following.include? other_user
+  end
+
+  def current_user? user
+    self == user
+  end
+
+  def send_comment_notify_email comment
+    UserMailer.comment_notify(comment).deliver_now
+  end
+
   private
 
   def downcase_email

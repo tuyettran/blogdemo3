@@ -3,9 +3,10 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require_tree .
 //= require i18n
+//= require i18n.js
 //= require i18n/translations
+//= require_tree .
 //
 //CORE PLUGINS
 //= require back-to-top

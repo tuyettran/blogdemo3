@@ -111,6 +111,20 @@ en:
       unfollow: "Unfollow"
     user_info:
       posts: "posts"
+      email: "Email: "
+      gender: "Gender: "
+      phone_number: "Phone number: "
+    user:
+      email: "Email: "
+      gender: "Gender: "
+    show_follow:
+      show_follow: "Show follow:"
   comments:
     number_comments:
       comments: "%{number_comments} comments"
+  user_mailer:
+    comment_notification: "Web blog notification"
+    comment_notify:
+      hi: "Hi"
+      commented: "commented in your post: "
+      content: " with content: "
