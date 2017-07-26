@@ -1,0 +1,19 @@
+<div id="comment-<%= comment.id %>" class = "col-md-offset-1 comment">
+  <%= image_tag post.user.avatar.url, class: "avatar-header" %>
+  <span class="user"><%= link_to comment.user.full_name, comment.user %></span>
+  <span class="content-comment", data-id = "<%= comment.id %>">
+    <p><%= comment.content %></p>
+  </span>
+  <span class="timestamp col-md-offset-2">
+    <%= comment.created_at %>
+    <% if can? :update, comment %>
+      <%= link_to t(".edit"), edit_post_comment_path(post, comment),
+        remote: true, class: "edit-comment" %> |
+    <% end %>
+    <% if can? :destroy, comment %>
+      <%= link_to t(".delete"), post_comment_path(post, comment),
+        method: :delete, data: {confirm: t(".sure")}, remote: true,
+        class: "user-delete" %>
+    <% end %>
+  </span>
+</div>

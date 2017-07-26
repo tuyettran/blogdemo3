@@ -1,0 +1,25 @@
+.error-explanation {
+  color: $red;
+}
+
+.tag-btn {
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.comment-form {
+  margin-top: 10px;
+}
+
+.number-comment-block {
+  color: $orange;
+}
+
+.post-li {
+  border-bottom: 1px solid $gray;
+
+  .main-content {
+    padding: 10px;
+  }
+}
+
