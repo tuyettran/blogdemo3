@@ -1,0 +1,13 @@
+<% provide :title, t(".show_follow") %>
+<div class="row">
+  <div class="col-md-8">
+    <h3><%= t ".show_follow" %></h3>
+    <% if @users.any? %>
+      <ol class="users follow">
+        <%= render @users %>
+      </ol>
+      <%= paginate @users, theme: "twitter-bootstrap-3" %>
+    <% end %>
+  </div>
+  <%= render "user_info", user: @user %>
+</div>

@@ -1,0 +1,14 @@
+<div class="col-md-3 user-side-bar">
+  <h3><%= user.full_name %></h3>
+  <span>
+    <%= image_tag user.avatar.url, class: "avatar-user-index img-circle" %>
+  </span><br/>
+  <b><%= t ".email" %></b><%= user.email %><br/>
+  <b><%= t ".gender" %></b><%= user.gender %><br/>
+  <b><%= t ".phone_number" %></b><%= user.phone_number %><br/>
+  <span class = "number_posts">
+    <b><%= number_posts user %><%= t ".posts" %></b>
+  </span>
+  <%= render "shared/stats", user: user %>
+  <%= render "follow_form", user: user %>
+</div>
