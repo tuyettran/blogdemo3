@@ -19,4 +19,65 @@ class Post < ApplicationRecord
   validates :content, presence: true,
     length: {maximum: Settings.post.content.max_length}
   validates :tag_list, presence: true, allow_blank: true
+
+  def tags_name
+    return {} unless tags.present?
+    Tag.joins(:post_tags).where("post_tags.post_id = #{id}").pluck :name
+  end
+
+  def create_post_tags
+    ActiveRecord::Base.transaction do
+      self.save!
+      if validate_number_tags && build_tags
+        return true
+      else
+        raise ActiveRecord::Rollback
+      end
+    end
+    rescue ActiveRecord::RecordInvalid
+    return false
+  end
+
+  def update_post_tags post_params
+    ActiveRecord::Base.transaction do
+      update_attributes post_params
+      if validate_number_tags && update_tags
+        return true
+      else
+        raise ActiveRecord::Rollback
+      end
+    end
+    rescue ActiveRecord::RecordInvalid
+    return false
+  end
+
+  def validate_number_tags
+    max_tags = Settings.post.max_tags
+
+    if tag_list.present?
+      list = tag_list.split(",")
+      list.uniq!
+      if list.length > max_tags
+        errors.add :tag_list, I18n.t("tags.too_much_tag")
+        return false
+      end
+    end
+    true
+  end
+
+  def update_tags
+    tags.delete_all
+    build_tags
+  end
+
+  def build_tags
+    return true unless tag_list.present?
+
+    tag_list.split(",").each do |tag|
+      tags << Tag.find_or_create_by!(name: tag.strip)
+    end
+    rescue ActiveRecord::RecordInvalid => exception
+    errors[:tag_list] << exception.message
+    return false
+  end
 end

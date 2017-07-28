@@ -1,9 +1,9 @@
 <% if @status == 200 %>
   $('#post-<%= @post.id %>').modal('toggle');
   $('.tag-list')
-    .html('<%= escape_javascript render('tags/tag_list', post: @post) %>')
+    .html('<%= j render("tags/tag_list", post: @post) %>')
   $('.post-content[data-id=<%= @post.id %>]')
-    .html('<%= escape_javascript render('posts/update', post: @post) %>');
+    .html('<%= j render("posts/update", post: @post) %>');
 <% else %>
   $('.show-errors').html('');
   <% @post.errors.full_messages.each do |message| %>

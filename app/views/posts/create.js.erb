@@ -1,9 +1,11 @@
 <% if @status == 200 %>
-  $('.microposts').prepend('<%= escape_javascript render('posts/post',\
+  $('.microposts').prepend('<%= j render("posts/post",\
     post: @post, comment: @comments) %>');
   $('#post-form').modal('toggle');
   $('.show-errors-create').html('');
   $('.post-title').val('');
+  $('.tags-list').val('');
+  $('.create-tag span').hide();
 <% else %>
   $('.show-errors-create').html('');
   <% @post.errors.full_messages.each do |message| %>
