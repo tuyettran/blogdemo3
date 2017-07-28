@@ -1,29 +1,47 @@
-<% if user_signed_in? %>
-  <div class="row container">
-    <section class="post-form col-md-offset-8">
-      <button class="btn btn-primary" data-toggle="modal"
+<div class="row post-search-form">
+  <%= form_tag search_path, class: "search" do %>
+    <%= text_field_tag :keyword, nil, placeholder: t(".search_post") %>
+    <%= submit_tag t(".search"), class: "btn submit-search" %>
+  <% end %>
+</div>
+<div class="row container post-form-div">
+  <% if user_signed_in? %>
+    <section class="post-form col-md-offset-7">
+      <button class="btn btn-info" data-toggle="modal"
         data-target="#post-form">
         <span class="glyphicon glyphicon-plus new-post-icon"></span>
         <%= t ".new_post" %>
       </button>
       <%= render "shared/post_form", post: @post %>
     </section>
-  </div>
-  <div class="col-md-9">
-    <%= render "shared/feed", feed_items: @feed_items %>
-  </div>
-  <div class="col-md-3">
-  </div>
-<% else %>
-  <div class="row quote-v1">
-    <div class="text-center">
-      <span class="welcome"><%= t ".welcome" %></span>
-      <span><%= t ".introduction" %></span>
-      <span><%= t ".search_able" %></span>
+  <% end %>
+</div>
+<div class="col-md-9">
+  <%= render "shared/feed", feed_items: @feed_items %>
+</div>
+<div class="col-md-3 home-sidebar">
+  <div class="home-sidebar-block">
+    <h3><%= t ".hot_user" %></h3>
+    <div class="user-search-form">
+      <%= form_tag search_user_path do %>
+        <%= text_field_tag :keyword, nil, placeholder: t(".user_search") %>
+        <%= submit_tag "", class: "btn btn-sm submit-search-user" %>
+      <% end %>
     </div>
-    <span class="register-now">
-      <%= link_to t(".register_now"), new_user_registration_path,
-        class: "btn-transparent register-now" %>
-    </span>
+    <div class="clearfix"></div>
+    <% @hot_user.each do |user| %>
+      <div class="row home-sidebar-user">
+        <div class="col-md-3"><%= image_tag user.avatar.url, class: "avatar-user-list" %></div>
+        <div class="col-md-9"><%= link_to user.full_name, user %>
+          <p class="stats"><%= render "shared/stats", user: user %></p>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
+  <div class="row home-sidebar-block">
+    <h3><%= t ".popular_tag" %></h3>
+    <% @popular_tag.each do |tag| %>
+        <%= link_to tag.name, tag, class: "btn-xs btn-primary" %>
+    <% end %>
+  </div>
+</div>

@@ -12,6 +12,10 @@ class Post < ApplicationRecord
   scope :feed_by_following, lambda{|following_ids|
     where("user_id IN (?)", following_ids).order_desc if following_ids.present?
   }
+  scope :search, lambda{|keyword|
+    where "title LIKE BINARY :keyword
+      OR content LIKE BINARY :keyword", keyword: keyword
+  }
 
   validates :user, presence: true
   validates :title, presence: true,
