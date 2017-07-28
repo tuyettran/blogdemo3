@@ -1,9 +1,11 @@
 class StaticPagesController < ApplicationController
+  include ResourceStaticPage
+
   def home
-    if user_signed_in?
-      @post = current_user.posts.build
-      @feed_items = Post.all.order_desc.page params[:page]
-      @comment = current_user.comments.build
-    end
+    @post = Post.new
+    @comment = Comment.new
+    feed_items
+    hot_users
+    popular_tags
   end
 end

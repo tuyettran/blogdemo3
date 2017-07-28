@@ -71,3 +71,82 @@ li {
 .update-comment {
   display: none;
 }
+
+.search {
+  float:right;
+  margin-right:  150px;
+
+  input[type="text"] {
+    background-color: white;
+    background-image: url('search-icon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    border-radius: 4px;
+    border: 2px solid #ccc;
+    box-sizing: border-box;
+    font-size: 16px;
+    height: 35px;
+    margin: 0;
+    padding: 12px 20px 12px 40px;
+    transition: width 0.4s ease-in-out;
+    width: 200px;
+    -webkit-transition: width 0.4s ease-in-out;
+  }
+
+  input[type="text"]:focus {
+    width: 500px;
+  }
+
+  .submit-search {
+    background-color: $orange;
+    margin: 0;
+  }
+}
+
+.home-sidebar {
+  margin: 0;
+
+  .home-sidebar-user {
+    background-color: $light-orange;
+    border-left: 3px solid #ffb999;
+    font-size: 18px;
+    margin-bottom: 10px;
+    padding: 0;
+
+    .stats {
+      font-size: 14px;
+      margin-left: 20px;
+    }
+  }
+
+  .avatar-user-list {
+    height: 50px;
+    margin-left: 5px;
+    width: 50px;
+  }
+}
+
+.post-form-div {
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.user-search-form {
+  float: right;
+  margin-bottom: 10px;
+
+  input[type="text"] {
+    height: 30px;
+    padding: 3px;
+    padding: 5px 10px 5px 10px;
+    width: 75%;
+  }
+
+  .submit-search-user {
+    background-image: url('search-icon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    height: 30px;
+    padding: 5px 10px 5px 30px;
+  }
+}

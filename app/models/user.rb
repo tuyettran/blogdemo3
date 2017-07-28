@@ -12,13 +12,23 @@ class User < ApplicationRecord
     foreign_key: :follower_id, dependent: :destroy
   has_many :passtive_relationships, class_name: Relationship.name,
     foreign_key: :followed_id, dependent: :destroy
-  has_many :followes, through: :passtive_relationships
-  has_many :following, through: :active_relationships
+  has_many :followers, through: :passtive_relationships, source: :follower
+  has_many :following, through: :active_relationships, source: :followed
 
   devise :database_authenticatable, :registerable, :confirmable,
     :recoverable, :rememberable, :trackable, :validatable
 
   before_save :downcase_email
+
+  scope :search, lambda{|keyword|
+    where "full_name LIKE BINARY :keyword OR email LIKE :keyword
+      OR phone_number LIKE :keyword", keyword: keyword
+  }
+
+  scope :hot_user, lambda{
+    joins(:followers).group("users.id").order("count(users.id) DESC")
+      .limit Settings.user.hot_user.limit
+  }
 
   validates :full_name, presence: true,
     length: {maximum: Settings.user.full_name.max_length}
