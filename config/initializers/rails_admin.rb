@@ -15,7 +15,7 @@ RailsAdmin.config do |config|
   # config.authorize_with :pundit
 
   ## == PaperTrail ==
-  # config.audit_with :paper_trail, 'User', 'PaperTrail::Version' # PaperTrail >= 3.0.0
+  # config.audit_with :paper_trail, "User", "PaperTrail::Version" # PaperTrail >= 3.0.0
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
 
@@ -42,12 +42,7 @@ RailsAdmin.config do |config|
       end
       field :title
       field :content, :ck_editor
-      field :post_tags
-      field :user_id do
-        default_value do
-          bindings[:view]._current_user_id
-        end
-      end
+      field :tags
     end
 
     create do
@@ -64,9 +59,7 @@ RailsAdmin.config do |config|
   config.model User do
     create do
       field :email do
-        default_value do
-          bindings[:view].("")
-        end
+        default_value ""
       end
       field :password
       field :full_name
@@ -85,6 +78,26 @@ RailsAdmin.config do |config|
       field :gender
       field :avatar
     end
+  end
+
+  config.model Relationship do
+    visible false
+  end
+
+  config.model PostTag do
+    visible false
+  end
+
+  config.model "Ckeditor::Asset" do
+    visible false
+  end
+
+  config.model "Ckeditor::AttachmentFile" do
+    visible false
+  end
+
+  config.model "Ckeditor::Picture" do
+    visible false
   end
 
   config.parent_controller = "ApplicationController"

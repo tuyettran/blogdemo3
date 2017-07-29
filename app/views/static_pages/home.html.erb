@@ -1,9 +1,3 @@
-<div class="row post-search-form">
-    <%= form_tag search_path, class: "search" do %>
-      <%= text_field_tag :keyword, nil, placeholder: t(".search_post") %>
-      <%= submit_tag t(".search"), class: "btn submit-search" %>
-    <% end %>
-  </div>
 <div class="row container post-form-div">
   <% if user_signed_in? %>
     <section class="post-form col-md-offset-7">
@@ -16,7 +10,7 @@
     </section>
   <% end %>
 </div>
-<div class="col-md-9">
+<div class="col-md-9 content-main">
   <%= render "shared/feed", feed_items: @feed_items %>
 </div>
 <div class="col-md-3 home-sidebar">

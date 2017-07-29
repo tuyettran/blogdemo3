@@ -244,10 +244,10 @@ textarea.form-control:focus {
   font-size: 0;
   line-height: 0;
 }
-*html .clearfix {
+html .clearfix {
   zoom: 1;
 }
-*+html .clearfix {
+html .clearfix {
   zoom: 1;
 }
 .clear {

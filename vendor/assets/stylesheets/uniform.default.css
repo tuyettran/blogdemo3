@@ -113,7 +113,6 @@ div.checker {
   div.checker span {
     display: -moz-inline-box;
     display: inline-block;
-    *display: inline;
     zoom: 1;
     text-align: center;
     background-position: 0 -260px; }
@@ -127,7 +126,6 @@ div.checker {
     background: none;
     display: -moz-inline-box;
     display: inline-block;
-    *display: inline;
     zoom: 1; }
   div.checker.active span {
     background-position: -19px -260px; }
@@ -155,7 +153,6 @@ div.radio {
   div.radio span {
     display: -moz-inline-box;
     display: inline-block;
-    *display: inline;
     zoom: 1;
     text-align: center;
     background-position: 0 -279px; }
@@ -169,7 +166,6 @@ div.radio {
     background: none;
     display: -moz-inline-box;
     display: inline-block;
-    *display: inline;
     zoom: 1;
     text-align: center; }
   div.radio.active span {
@@ -265,7 +261,6 @@ div.button {
   div.button span {
     display: -moz-inline-box;
     display: inline-block;
-    *display: inline;
     zoom: 1;
     line-height: 22px;
     text-align: center;

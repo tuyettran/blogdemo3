@@ -1,6 +1,7 @@
 en:
   layouts:
     blogdemo: "Blog demo"
+    access_denie: "Your account can not access admin dashboard!"
     header:
       log_in: "Log in"
       registration: "Registration"
@@ -12,6 +13,8 @@ en:
       my_blog: "My blog"
       following: "Following"
       account: "Account"
+      search_post: "Search post"
+      search: "Search"
     footer:
       from-framgia: "2017 © Framgia training"
       rails-tutorial: "Rails tutorial"
@@ -30,8 +33,6 @@ en:
       new_post: "Post"
       popular_tag: "Popular tags"
       hot_user: "Hot users"
-      search_post: "Search post"
-      search: "Search"
       user_search: "user"
   devise:
     confirmations:
@@ -81,6 +82,7 @@ en:
       following: "%{number_following} following"
       followers: "%{number_followers} following"
   posts:
+    content_not_blank: "Post content in text format can't be blank."
     edit:
       close: "Close"
     show:
@@ -127,6 +129,9 @@ en:
     show_follow:
       show_follow: "Show follow:"
   comments:
+    sure: "Are you sure?"
+    destroy:
+      has_error: "Opps, there are something wrongs, can not delete comment"
     number_comments:
       comments: "%{number_comments} comments"
     comment_form:

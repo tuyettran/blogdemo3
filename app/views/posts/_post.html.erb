@@ -3,13 +3,17 @@
     <%= image_tag post.user.avatar.url, class: "avatar-header" %>
     <span class="user"><%= link_to post.user.full_name, post.user %></span>
     <span class="post-content", data-id="<%= post.id %>">
-      <h3 class="text-center"><%= link_to post.title, post %></h3>
+      <h3><%= link_to post.title, post %></h3>
       <p><%= post.content.html_safe %></p>
     </span>
   </div>
-  <span class="timestamp col-md-offset-5">
-    <%= post.created_at %>
-    <span class = "number-comments">
+  <span class="tag-list pull-right">
+    <%= render "tags/tag_list", post: post %>
+  </span>
+  <br/>
+  <span class="timestamp pull-right">
+    <i><%= post.created_at %></i>
+    <span class = "number-comments-<%= post.id %>">
       <%= render "comments/number_comments", post: post %>
     </span>
     <% if can? :update, post %>
@@ -20,10 +24,8 @@
       <%= link_to t(".delete"), post, method: :delete, remote: true,
         data: {confirm: t(".sure")} %>
     <% end %>
-    <span class="tag-list">
-      <%= render "tags/tag_list", post: post %>
-    </span>
   </span>
+  <div class="clearfix"></div>
   <span class="list-comments-<%= post.id %>">
     <%= render post.comments.last(3), post: post %>
   </span>

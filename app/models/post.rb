@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  include ActionView::Helpers::SanitizeHelper
   attr_accessor :tag_list
 
   belongs_to :user
@@ -13,8 +14,8 @@ class Post < ApplicationRecord
     where("user_id IN (?)", following_ids).order_desc if following_ids.present?
   }
   scope :search, lambda{|keyword|
-    where("title LIKE BINARY :keyword
-      OR content LIKE BINARY :keyword", keyword: keyword)
+    where("title LIKE :keyword
+      OR content LIKE :keyword", keyword: keyword)
   }
 
   validates :user, presence: true
@@ -23,6 +24,7 @@ class Post < ApplicationRecord
   validates :content, presence: true,
     length: {maximum: Settings.post.content.max_length}
   validates :tag_list, presence: true, allow_blank: true
+  validate :content_not_blank
 
   def tags_name
     return {} unless tags.present?
@@ -83,5 +85,9 @@ class Post < ApplicationRecord
     rescue ActiveRecord::RecordInvalid => exception
     errors[:tag_list] << exception.message
     return false
+  end
+
+  def content_not_blank
+    errors.add :content, I18n.t("posts.content_not_blank") if strip_tags(content).blank?
   end
 end

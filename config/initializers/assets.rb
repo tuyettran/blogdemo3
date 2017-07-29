@@ -3,6 +3,12 @@
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = "1.0"
 Rails.application.config.assets.precompile += %w(ckeditor/filebrowser/images/gal_del.png)
+Rails.application.config.assets.precompile += %w( application.js )
+Rails.application.config.assets.precompile += %w(config_ckeditor.js)
+Rails.application.config.assets.precompile += %w( bootstrap.js )
+Rails.application.config.assets.precompile += %w( cable.js )
+Rails.application.config.assets.precompile += %w(ckeditor/config.js)
+Rails.application.config.assets.precompile += %w(ckeditor/*)
 # Add additional assets to the asset load path.
 # Rails.application.config.assets.paths << Emoji.images_path
 # Add Yarn node_modules folder to the asset load path.

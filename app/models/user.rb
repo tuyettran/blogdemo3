@@ -21,7 +21,7 @@ class User < ApplicationRecord
   before_save :downcase_email
 
   scope :search, lambda{|keyword|
-    where "full_name LIKE BINARY :keyword OR email LIKE :keyword
+    where "full_name LIKE :keyword OR email LIKE :keyword
       OR phone_number LIKE :keyword", keyword: keyword
   }
 

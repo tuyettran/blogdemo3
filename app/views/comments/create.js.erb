@@ -2,10 +2,10 @@
   $('.list-comments-' + '<%= @post.id %>')
     .append('<%= escape_javascript render('comments/comment',comment: @comment,\
     post: @post) %>');
-  $('#number-comments-<%= @post.id %>')
+  $('.number-comments-<%= @post.id %>')
     .html('<%= escape_javascript render('comments/number_comments',\
     post: @post) %>');
-  $('#comment_content').val('');
+  $('.comment-content-input').val('');
 <% else %>
   alert('<%= t "comments.create.has_error" %>');
 <% end %>

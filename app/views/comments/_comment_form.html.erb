@@ -3,7 +3,7 @@
   <%= render "shared/error_messages", object: f.object %>
   <div class="field col-md-offset-1 comment-form">
     <%= f.text_field :content, placeholder: t(".comment"),
-      class: "form-control"%>
+      class: "form-control comment-content-input"%>
     <div class="col-md-offset-9">
       <%= f.submit t(".comment"), class: "submit-comment btn-primary" %>
     </div>

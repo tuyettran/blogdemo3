@@ -9,6 +9,7 @@
     <%= javascript_include_tag "application",
       "data-turbolinks-track": "reload" %>
     <%= render "layouts/shim" %>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   </head>
   <body>
     <%= render "layouts/header" %>
@@ -20,7 +21,7 @@
 
       <%= yield %>
     </div>
-    <div class="block-footer">
+    <div class="row page-footer">
       <%= render "layouts/footer" %>
     </div>
   </body>

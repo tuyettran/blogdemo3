@@ -46,3 +46,9 @@
     </div>
   </div>
 </div>
+<div class="row post-search-form">
+  <%= form_tag search_path, class: "search" do %>
+    <%= text_field_tag :keyword, nil, placeholder: t(".search_post") %>
+    <%= submit_tag t(".search"), class: "btn submit-search" %>
+  <% end %>
+</div>

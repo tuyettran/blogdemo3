@@ -9,12 +9,13 @@ gem "bootstrap-kaminari-views"
 gem "bootstrap-sass", "~> 3.3.7"
 gem "cancancan"
 gem "carrierwave", "1.1.0"
-gem "ckeditor", "~> 4.1"
+gem "ckeditor", github: "galetahub/ckeditor"
 gem "coffee-rails", "~> 4.2"
 gem "config"
 gem "devise"
 gem "faker"
 gem "fog"
+gem "foundation-rails"
 gem "i18n-js", "3.0.0"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
@@ -64,6 +65,11 @@ group :test do
   gem "simplecov", require: false
   gem "simplecov-json"
   gem "simplecov-rcov", require: false
+end
+
+group :production do
+  gem "pg", "0.18.4"
+  gem "rails_12factor", "0.0.2"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
