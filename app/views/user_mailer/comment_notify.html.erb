@@ -1,0 +1,4 @@
+<h2>Hi <%= @comment.post.user.full_name %>,</h2>
+<%= @comment.user.full_name %> commented in your topic:
+<%= link_to @comment.post.title, @comment.post %> with content:"
+<%= @comment.content %>"
