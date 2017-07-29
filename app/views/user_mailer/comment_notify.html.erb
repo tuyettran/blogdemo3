@@ -1,0 +1,4 @@
+<h2><%= t ".hi" %>, <%= @comment.post.user.full_name %></h2>
+<%= @comment.user.full_name %><%= t ".commented" %>
+<%= link_to @comment.post.title, @comment.post %><%= t ".content" %>
+<%= @comment.content %>"

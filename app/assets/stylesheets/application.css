@@ -1,4 +1,5 @@
 //= require_self
+//= require bootstrap.min
 //= require animate
 //= require components
 //= require custom
@@ -10,5 +11,5 @@
 //= require style
 //= require style-responsive
 //= require uniform.default
-//= require bootstrap.min
+//= require bootstrap-tagsinput
 //= require custom
