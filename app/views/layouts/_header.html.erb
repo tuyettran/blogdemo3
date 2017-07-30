@@ -29,8 +29,8 @@
       <ul>
         <li><%= link_to t(".home"), root_path %></li>
         <% if user_signed_in? %>
-          <li><%= link_to t(".my_blog"), "#" %></li>
-          <li><%= link_to t(".following"), "#" %></li>
+          <li><%= link_to t(".my_blog"), current_user %></li>
+          <li><%= link_to t(".following"), feed_path %></li>
           <li class="dropdown">
             <%= link_to t(".account"), "#", class: "dropdown-toggle",
               data: {toggle: "dropdown", target: "#"} %>

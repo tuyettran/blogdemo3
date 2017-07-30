@@ -28,6 +28,11 @@ en:
         follow other and show, comment their blogs."
       search_able: "You can also search for any topic or user you want"
       new_post: "Post"
+      popular_tag: "Popular tags"
+      hot_user: "Hot users"
+      search_post: "Search post"
+      search: "Search"
+      user_search: "user"
   devise:
     confirmations:
       new:
