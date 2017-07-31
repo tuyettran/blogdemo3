@@ -3,7 +3,7 @@
     <%= image_tag post.user.avatar.url, class: "avatar-header" %>
     <span class="user"><%= link_to post.user.full_name, post.user %></span>
     <span class="post-content", data-id="<%= post.id %>">
-      <h3><%= link_to post.title, post %></h3>
+      <h2><%= link_to post.title, post %></h2>
       <p><%= post.content.html_safe %></p>
     </span>
   </div>
@@ -12,7 +12,7 @@
   </span>
   <br/>
   <span class="timestamp pull-right">
-    <i><%= post.created_at %></i>
+    <i class="created-at"><%= post.created_at %></i>&nbsp;&nbsp;
     <span class = "number-comments-<%= post.id %>">
       <%= render "comments/number_comments", post: post %>
     </span>

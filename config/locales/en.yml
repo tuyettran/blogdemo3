@@ -145,3 +145,5 @@ en:
   tags:
     posts_for: "Posts for tag "
     too_much_tag: "Should less than 10 tags per post"
+    show:
+      posts_for: "Posts for tag "

@@ -5,7 +5,7 @@
     <p><%= comment.content %></p>
   </span>
   <span class="timestamp col-md-offset-2">
-    <%= comment.created_at %>
+    <i class="created-at"><%= comment.created_at %></i>&nbsp;&nbsp;
     <% if can? :update, comment %>
       <%= link_to t(".edit"), edit_post_comment_path(post, comment),
         remote: true, class: "edit-comment" %> |

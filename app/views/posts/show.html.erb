@@ -6,7 +6,7 @@
     <h4><%= @post.content.html_safe %></h4>
   </span>
   <span class="timestamp col-md-offset-5">
-    <%= @post.created_at %>
+    <i class="created_at"><%= @post.created_at %></i>
     <span class = "number-comments">
       <%= render "comments/number_comments", post: @post %>
     </span>

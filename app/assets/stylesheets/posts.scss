@@ -16,14 +16,12 @@
 
   .main-content {
     padding: 10px;
+    font-size: 17px;
   }
 }
 
-.timestamp {
-  i {
-    color: $gray;
-    font-size: 11px;
-  }
+.created-at {
+  font-size: 11px;
 }
 
 .tag-list {
