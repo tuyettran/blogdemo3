@@ -1,5 +1,6 @@
 en:
   layouts:
+    access_denie: "Your account can not access admin dashboard!"
     blogdemo: "Blog demo"
     header:
       log_in: "Log in"
@@ -132,6 +133,7 @@ en:
     comment_form:
       comment: "Comment"
   user_mailer:
+    notification: "Web blog notification"
     comment_notification: "Web blog notification"
     comment_notify:
       hi: "Hi"

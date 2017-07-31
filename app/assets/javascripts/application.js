@@ -19,3 +19,4 @@
 //= require app-layout
 //= require jquery.min
 //= require ckeditor/init
+//= require bootstrap-tagsinput

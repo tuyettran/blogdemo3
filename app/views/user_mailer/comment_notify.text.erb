@@ -1,0 +1,4 @@
+<%= t ".hi" %>, <%= @comment.post.user %>
+
+<%= @comment.user.full_name %><%= t ".commented" %>
+<%= link_to @comment.post.title, @comment.post %>
