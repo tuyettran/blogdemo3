@@ -13,6 +13,8 @@ en:
       my_blog: "My blog"
       following: "Following"
       account: "Account"
+      search_post: "Search post"
+      search: "Search"
     footer:
       from-framgia: "2017 © Framgia training"
       rails-tutorial: "Rails tutorial"
@@ -31,8 +33,6 @@ en:
       new_post: "Post"
       popular_tag: "Popular tags"
       hot_user: "Hot users"
-      search_post: "Search post"
-      search: "Search"
       user_search: "user"
   devise:
     confirmations:
@@ -82,6 +82,7 @@ en:
       following: "%{number_following} following"
       followers: "%{number_followers} following"
   posts:
+    content_not_blank: "Post content cannot be blank in text format"
     edit:
       close: "Close"
     show:
@@ -128,6 +129,7 @@ en:
     show_follow:
       show_follow: "Show follow:"
   comments:
+    sure: "Are you sure?"
     number_comments:
       comments: "%{number_comments} comments"
     comment_form:

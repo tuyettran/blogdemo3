@@ -12,7 +12,7 @@
     <% end %>
     <% if can? :destroy, comment %>
       <%= link_to t(".delete"), post_comment_path(post, comment),
-        method: :delete, data: {confirm: t(".sure")}, remote: true,
+        method: :delete, data: {confirm: t("comments.sure")}, remote: true,
         class: "user-delete" %>
     <% end %>
   </span>
