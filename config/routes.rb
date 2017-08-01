@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => "/admin", as: "rails_admin"
   mount Ckeditor::Engine => "/ckeditor"
   root "static_pages#home"
-  devise_for :users, controllers: {registrations: "registrations"}
+  devise_for :users, controllers: {registrations: "registrations",
+    omniauth_callbacks: "omniauth_callbacks"}
 
   resources :users, only: [:show] do
     member do

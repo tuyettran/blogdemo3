@@ -15,8 +15,9 @@ class User < ApplicationRecord
   has_many :followers, through: :passtive_relationships, source: :follower
   has_many :following, through: :active_relationships, source: :followed
 
-  devise :database_authenticatable, :registerable, :confirmable,
-    :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :registerable,
+    :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
+    omniauth_providers: [:facebook, :google_oauth2]
 
   before_save :downcase_email
 
@@ -34,7 +35,31 @@ class User < ApplicationRecord
     length: {maximum: Settings.user.full_name.max_length}
   validates :phone_number, format: {with: VALID_PHONE_REGEX},
     length: {maximum: Settings.user.phone_number.max_length}
+  validates_presence_of :uid
+  validates_uniqueness_of :uid
   validate :avatar_size
+
+  def self.from_facebook auth
+    User.find_or_initialize_by(email: auth.info.email).tap do |user|
+      user.full_name = auth.info.name
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.email = auth.info.email
+      user.password = User.generate_unique_secure_token if user.new_record?
+      user.save
+    end
+  end
+
+  def self.from_google auth
+    User.find_or_initialize_by(email: auth.info.email).tap do |user|
+      user.full_name = auth.info.name
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.email = auth.info.email
+      user.password = User.generate_unique_secure_token if user.new_record?
+      user.save
+    end
+  end
 
   def follow other_user
     following << other_user

@@ -1,12 +1,14 @@
-User.create full_name: "Tuyet Tran",
-  email: "tuyet.tran.k59@gmail.com",
+User.create full_name: "Tuyet Tran- Framgia",
+  email: "tran.thi.anh.tuyet@framgia.com",
   password: "121212",
+  uid: Random.rand(10000..1000000000),
   role: 1
 
 20.times do |index|
   User.create full_name: Faker::Name.name,
     email: "example-#{index+1}@railstutorial.org",
     gender: Random.rand(0..2),
+    uid: Random.rand(10000..1000000000),
     password: "123456"
 end
 

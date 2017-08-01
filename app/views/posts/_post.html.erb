@@ -32,4 +32,5 @@
   <% if can? :create, post.comments.build %>
     <%= render "comments/comment_form", post: post, comment: post.comments.build %>
   <% end %>
+  <%= social_share_button_tag(post.title) %>
 </li>

@@ -20,3 +20,4 @@
 //= require owl.carousel.min
 //= require app-layout
 //= require bootstrap-tagsinput
+//= require social-share-button
