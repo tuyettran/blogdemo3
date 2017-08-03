@@ -1,10 +1,7 @@
-<div id="comment-<%= comment.id %>" class = "col-md-offset-1 comment">
+<div id="comment-<%= comment.id %>" class = "comment">
   <%= image_tag post.user.avatar.url, class: "avatar-header" %>
   <span class="user"><%= link_to comment.user.full_name, comment.user %></span>
-  <span class="content-comment", data-id = "<%= comment.id %>">
-    <p><%= comment.content %></p>
-  </span>
-  <span class="timestamp col-md-offset-2">
+  <span class="timestamp">
     <i class="created-at"><%= comment.created_at %></i>&nbsp;&nbsp;
     <% if can? :update, comment %>
       <%= link_to t(".edit"), edit_post_comment_path(post, comment),
@@ -16,4 +13,7 @@
         class: "user-delete" %>
     <% end %>
   </span>
+  <p class="row content-comment", data-id = "<%= comment.id %>">
+    <span><%= comment.content %></span>
+  </p>
 </div>

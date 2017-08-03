@@ -1,7 +1,5 @@
 <% if post.tags.any? %>
-  <span>
-    <% post.tags.each do |tag| %>
-      <%= link_to tag.name, tag, class: "btn-xs btn-info" %>
-    <% end %>
-  </span>
+  <% post.tags.each do |tag| %>
+    <%= link_to tag.name, tag, class: "btn-xs btn-primary" %>
+  <% end %>
 <% end %>

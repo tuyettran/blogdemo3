@@ -1,3 +1,5 @@
+require Rails.root.join('lib', 'rails_admin', 'bulk_action.rb')
+
 RailsAdmin.config do |config|
 
   ### Popular gems integration
@@ -11,18 +13,6 @@ RailsAdmin.config do |config|
   ## == Cancan ==
   config.authorize_with :cancan
 
-  ## == Pundit ==
-  # config.authorize_with :pundit
-
-  ## == PaperTrail ==
-  # config.audit_with :paper_trail, "User", "PaperTrail::Version" # PaperTrail >= 3.0.0
-
-  ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
-
-  ## == Gravatar integration ==
-  ## To disable Gravatar integration in Navigation Bar set to false
-  # config.show_gravatar = true
-
   config.actions do
     dashboard
     index
@@ -33,9 +23,33 @@ RailsAdmin.config do |config|
     edit
     delete
     show_in_app
+    toggle
+    bulk_toggle do
+      visible do
+        bindings[:abstract_model].model.to_s == "Post"
+      end
+    end
+    bulk_enable do
+      visible do
+        bindings[:abstract_model].model.to_s == "Post"
+      end
+    end
+    bulk_disable do
+      visible do
+        bindings[:abstract_model].model.to_s == "Post"
+      end
+    end
   end
 
   config.model Post do
+    list do
+      field :id
+      field :title
+      field :content
+      field :user_id
+      field :enabled, :toggle
+    end
+
     edit do
       configure :user do
         visible false
@@ -43,6 +57,7 @@ RailsAdmin.config do |config|
       field :title
       field :content, :ck_editor
       field :tags
+      field :enabled, :toggle
     end
 
     create do
@@ -53,22 +68,11 @@ RailsAdmin.config do |config|
           bindings[:view]._current_user.id
         end
       end
+      field :enabled, :toggle
     end
   end
 
   config.model User do
-    create do
-      field :email do
-        default_value ""
-      end
-      field :password
-      field :full_name
-      field :phone_number
-      field :role
-      field :gender
-      field :avatar
-    end
-
     edit do
       field :email
       field :password

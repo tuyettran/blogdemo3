@@ -7,7 +7,6 @@ body {
   color: #3e4d5c;
   direction: ltr;
   font: 400 13px 'Open Sans', Arial, sans-serif;
-  background: #fff;
 }
 
 /***
@@ -221,20 +220,6 @@ select.form-control:focus {
   border-color: #999;
 }
 
-input.form-control,
-textarea.form-control {
-  border-color: #dbdbdb;
-  color: #777;
-  font: 14px Arial, sans-serif;
-  border-radius: 0;
-  box-shadow: none;
-}
-input.form-control:focus,
-textarea.form-control:focus {
-  box-shadow: none;
-  border: solid 1px #dbdbdb;
-}
-
 .clearfix:after {
   content: ".";
   display: block;
@@ -443,9 +428,6 @@ body.page-header-fixed {
 }
 /* FIX styles END */
 
-.header .container {
-  position: relative;
-}
 .ie8 .header {
   border-bottom: 1px solid #eee;
 }
@@ -479,7 +461,7 @@ body.page-header-fixed {
 /* Navigation */
 .header-navigation {
   font: 15px "Open Sans", sans-serif;
-  margin: 0 10px 0 0;
+  margin: 0;
   padding: 0;
   float: left;
   text-transform: uppercase;
@@ -976,9 +958,6 @@ Sidebar
 /***
 Brands
 ***/
-.brands .container {
-  padding-right: 25px;
-}
 .brands .owl-carousel {
     margin-bottom: 41px;
     padding: 0 75px;
@@ -1323,7 +1302,7 @@ div.content-form-page {
 .require {
   color: #e94d1c;
 }
-.content-form-page input.form-control {
+.content-form-page {
   border-color: #dbdbdb;
   color: #aaa;
   font: 14px Arial, sans-serif;
@@ -1415,10 +1394,6 @@ div.content-form-page .checkbox-list {
   color: #b0b4b7;
   font: 14px Arial, sans-serif;
   height: 35px;
-}
-.content-search input:focus {
-  box-shadow: none;
-  border: solid 1px #e94d1c;
 }
 .content-search button {
   margin-left: 0 !important;
@@ -1576,10 +1551,7 @@ Pre-Footer and pre-footer elements
   color: #3E4D5C;
   margin-top: 20px;
 }
-.pre-footer-light .container {
-  background: #fff;
-  padding-top: 25px;
-}
+
 .pre-footer-light h2,
 .ecommerce .pre-footer-light h2 {
   color: #3E4D5C;

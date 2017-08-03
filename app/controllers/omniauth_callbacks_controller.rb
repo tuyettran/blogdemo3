@@ -1,10 +1,15 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def facebook
-    @user = User.from_facebook request.env["omniauth.auth"]
-    if @user.persisted?
-      sign_in_and_redirect @user
+    if request.env["omniauth.auth"].info.email.present?
+      @user = User.from_facebook request.env["omniauth.auth"]
+      if @user.persisted?
+        sign_in_and_redirect @user
+      else
+        redirect_to root_path
+      end
     else
-      redirect_to root_path
+      flash[:danger] = t "devise.sessions.new.lose_email_info"
+      redirect_back
     end
   end
 

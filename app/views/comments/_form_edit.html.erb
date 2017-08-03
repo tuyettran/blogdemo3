@@ -1,7 +1,7 @@
 <div class="content-comment" data-id="<%= comment.id %>">
   <%= form_for comment, url: post_comment_path(comment.post, comment),
-    remote: true do |f| %>
-    <%= f.text_field :content, rows: "2", col: "10", class: "form-control" %>
+    remote: true, class: "edit-comment-form" do |f| %>
+    <%= f.text_field :content, class: "form-control edit-content" %>
     <%= f.button t("comments.update"), type: "submit",
       class: "update-comment btn-primary " %>
   <% end %>

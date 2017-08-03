@@ -1,54 +1,41 @@
-<% if user_signed_in? %>
-  <div class="pre-header">
-    <div class="container">
-      <div class="row">
-        <span class="pull-right current-user-name">
-          <%= image_tag current_user.avatar.url, class: "avatar-header" %>
-          <%= current_user.full_name %> | <%= current_user.email %></span>
-      </div>
-    </div>
-  </div>
-<% else %>
-  <div class="pre-header">
-    <div class="container">
-      <div class="row">
-        <ul class="list-unstyled list-inline pull-right">
-          <li><%= link_to t(".log_in"), new_user_session_path %></li>
-          <li><%= link_to t(".registration"), new_user_registration_path %></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-<% end %>
-
-<div class="header">
-  <div class="container">
-    <%= link_to image_tag("miniblog.png"), root_path, class: "mini-blog-logo" %>
-    <%= link_to t(".menu"), "#", class: "mobi-toggler" %>
-    <div class="header-navigation pull-right font-transform-inherit">
-      <ul>
-        <li><%= link_to t(".home"), root_path %></li>
-        <% if user_signed_in? %>
-          <li><%= link_to t(".my_blog"), current_user %></li>
-          <li><%= link_to t(".following"), feed_path %></li>
-          <li class="dropdown">
-            <%= link_to t(".account"), "#", class: "dropdown-toggle",
+<div class="row container-fluid">
+  <nav class="header navbar navbar-fixed-top header-navigation font-transform-inherit">
+    <li class="logo"><%= link_to image_tag("miniblog.png"), root_path, class: "mini-blog-logo" %></li>
+    <ul class="pull-right">
+      <% if user_signed_in? %>
+        <li><%= link_to t(".my_blog"), current_user %></li>
+        <li><%= link_to t(".following"), feed_path %></li>
+        <li class="dropdown">
+          <%= link_to current_user.full_name, "#", class: "dropdown-toggle",
               data: {toggle: "dropdown", target: "#"} %>
-            <ul class="dropdown-menu">
-              <li><%= link_to t(".edit_account"),
-                edit_user_registration_path %></li>
-              <li><%= link_to t(".sign_out"), destroy_user_session_path,
-                method: :delete %></li>
-            </ul>
-          </li>
-        <% end %>
-      </ul>
+          <ul class="dropdown-menu">
+            <li><%= link_to t(".edit_account"),
+              edit_user_registration_path %></li>
+            <li><%= link_to t(".sign_out"), destroy_user_session_path,
+              method: :delete %></li>
+          </ul>
+        </li>
+      <% else %>
+        <li><%= link_to t(".log_in"), new_user_session_path %></li>
+        <li><%= link_to t(".registration"), new_user_registration_path %></li>
+      <% end %>
+    </ul>
+    <div class="post-form-div">
+      <% if user_signed_in? && @post %>
+        <button class="btn post-form-btn" data-toggle="modal"
+          data-target="#post-form" title= "<%= t "static_pages.home.new_post" %>">
+          <span class="glyphicon glyphicon-plus new-post-icon"></span>
+        </button>
+      <% end %>
     </div>
-  </div>
+    <span class="post-search-form">
+      <%= form_tag search_path, class: "search" do %>
+        <table>
+          <td><%= text_field_tag :keyword, nil, placeholder: t(".search_post") %></td>
+          <td><%= submit_tag t(".search"), class: "submit-search btn-info" %></td>
+        </table>
+      <% end %>
+    </span>
+  </nav>
 </div>
-<div class="row post-search-form">
-  <%= form_tag search_path, class: "search" do %>
-    <%= text_field_tag :keyword, nil, placeholder: t(".search_post") %>
-    <%= submit_tag t(".search"), class: "btn submit-search" %>
-  <% end %>
-</div>
+<div class="clearfix"></div>

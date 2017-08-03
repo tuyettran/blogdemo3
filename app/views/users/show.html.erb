@@ -1,12 +1,8 @@
 <% provide :title, @user.full_name %>
-<div class="col-md-9">
-  <% if user_signed_in? && current_user.current_user?(@user) %>
-    <button class="btn btn-primary pull-right" data-toggle="modal"
-      data-target="#post-form">
-      <span class="glyphicon glyphicon-plus new-post-icon"></span>
-      <%= t ".post" %></button>
-    <%= render "shared/post_form", post: @post %>
-  <% end %>
+<div class="col-md-9 content-main">
+  <%= render "shared/post_form", post: @post %>
   <%= render "shared/feed", feed_items: @feed_items %>
 </div>
-<%= render "user_info", user: @user %>
+<div class="col-md-3 user-side-bar">
+  <%= render "user_info", user: @user %>
+</div>

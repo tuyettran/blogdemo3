@@ -1,10 +1,15 @@
-.user-side-bar {
-  background-color: $light-orange;
-  margin-top: 50px;
+.home-sidebar-block,
+.user-sidebar-block {
+  position: fixed;
+  width: 260px;
 }
 
 .stats a{
   font-size: 12px;
+}
+
+.user-info {
+  margin-bottom: 10px;
 }
 
 .current-user-name {
@@ -17,7 +22,13 @@
 }
 
 .avatar-user-list {
-  height: 80px;
-  margin: 10px;
+  height: 60px;
   width: 70px;
+  margin: 0 10px 0;
+  float: left;
+}
+
+.avatar-user-index {
+  width: 80px;
+  height: 70px;
 }

@@ -1,3 +1,4 @@
 $(document).ready(function(){
-  $(".alert").fadeOut(3000);
+  $(".alert-danger").fadeOut(10000);
+  $(".alert-success").fadeOut(3000);
 });

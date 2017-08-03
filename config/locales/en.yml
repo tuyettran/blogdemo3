@@ -30,7 +30,7 @@ en:
       introduction: "In the Web Blog, you can create your own blogs, \
         follow other and show, comment their blogs."
       search_able: "You can also search for any topic or user you want"
-      new_post: "Post"
+      new_post: "New post"
       popular_tag: "Popular tags"
       hot_user: "Hot users"
       user_search: "user"
@@ -65,6 +65,9 @@ en:
     sessions:
       new:
         log_in: "Log in"
+        lose_email_info: "Your facebook account not have email infomation \
+          which we need to contact and notify. \
+          Please add email address for it!"
   shared:
     user_info:
       blog: "Go to my blog"
@@ -80,7 +83,7 @@ en:
       error: "errors:"
     stats:
       following: "%{number_following} following"
-      followers: "%{number_followers} following"
+      followers: "%{number_followers} followers"
   posts:
     content_not_blank: "Post content in text format can't be blank."
     edit:
@@ -128,7 +131,11 @@ en:
       gender: "Gender: "
     show_follow:
       show_follow: "Show follow:"
+      post: "Post"
   comments:
+    comment:
+      edit: "Edit"
+      delete: "Delete"
     sure: "Are you sure?"
     destroy:
       has_error: "Opps, there are something wrongs, can not delete comment"

@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @post = Post.new
-    @feed_items = @user.posts.order_desc
+    @feed_items = @user.posts.enable.order_desc
                   .page(params[:page]).per Settings.post.per_page
   end
 

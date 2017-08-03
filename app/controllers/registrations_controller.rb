@@ -5,7 +5,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def configure_params
     devise_parameter_sanitizer.permit :sign_up,
-      keys: [:full_name]
+      keys: [:full_namem, :gender]
     devise_parameter_sanitizer.permit :account_update,
       keys: [:full_name, :gender, :phone_number, :avatar]
   end

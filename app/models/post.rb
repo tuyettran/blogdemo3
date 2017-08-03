@@ -10,8 +10,10 @@ class Post < ApplicationRecord
   paginates_per Settings.post.per_page
 
   scope :order_desc, ->{order created_at: :desc}
+  scope :enable, ->{where "enabled = ?", true}
   scope :feed_by_following, lambda{|following_ids|
-    where("user_id IN (?)", following_ids).order_desc if following_ids.present?
+    where("user_id IN (?)", following_ids).enable
+    .order_desc if !following_ids.blank?
   }
   scope :search, lambda{|keyword|
     where("title LIKE :keyword
