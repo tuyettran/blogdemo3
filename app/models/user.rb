@@ -30,6 +30,9 @@ class User < ApplicationRecord
     joins(:followers).group("users.id").order("count(users.id) DESC")
       .limit Settings.user.hot_user.limit
   }
+  scope :months_before, lambda{|current_time|
+    where("created_at < ? AND created_at > ?", current_time, current_time-60*60*24*30)
+  }
 
   validates :full_name, presence: true,
     length: {maximum: Settings.user.full_name.max_length}

@@ -8,8 +8,10 @@ class UsersController < ApplicationController
   end
 
   def feed
-    @feed_items = Post.feed_by_following(current_user.following.ids)
+    if current_user.following_ids.blank?
+      @feed_items = Post.feed_by_following(current_user.following.ids)
                   .page(params[:page]).per Settings.post.per_page
+    end
     render "feed"
   end
 

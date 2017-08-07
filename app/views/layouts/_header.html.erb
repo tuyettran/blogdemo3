@@ -29,7 +29,7 @@
       <% end %>
     </div>
     <span class="post-search-form">
-      <%= form_tag search_path, class: "search" do %>
+      <%= form_tag search_post_path, class: "search" do %>
         <table>
           <td><%= text_field_tag :keyword, nil, placeholder: t(".search_post") %></td>
           <td><%= submit_tag t(".search"), class: "submit-search btn-info" %></td>

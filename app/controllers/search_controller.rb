@@ -1,5 +1,5 @@
 class SearchController < ApplicationController
-  def index
+  def search_post
     keyword = "%#{params[:keyword]}%"
     @feed_items = Post.search(keyword).page(params[:page])
             .per Settings.post.per_page

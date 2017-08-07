@@ -149,8 +149,25 @@ en:
       hi: "Hi"
       commented: "commented in your post: "
       content: " with content: "
+    month_report:
+      report_this_month: "We send you monthly report for this month:"
+      have: "This month have "
+      new_user: " new user"
+      new_post: " new post with "
+      new_tag: " new tag"
+      dashboard: "Admin dashboard"
+      hi: "Hi"
+      access_dashboard: "You can access to admin dashboard to export details if you want."
   tags:
     posts_for: "Posts for tag "
     too_much_tag: "Should less than 10 tags per post"
     show:
       posts_for: "Posts for tag "
+  admin:
+    actions:
+      toggle_enable:
+        bulk_link: "Toggle enabled"
+      enable:
+        bulk_link: "Enable selected posts"
+      disable:
+        bulk_link: "Disable selected posts"

@@ -12,12 +12,14 @@ class Post < ApplicationRecord
   scope :order_desc, ->{order created_at: :desc}
   scope :enable, ->{where "enabled = ?", true}
   scope :feed_by_following, lambda{|following_ids|
-    where("user_id IN (?)", following_ids).enable
-    .order_desc if !following_ids.blank?
+    where("user_id IN (?)", following_ids).enable.order_desc
   }
   scope :search, lambda{|keyword|
     where("title LIKE :keyword
       OR content LIKE :keyword", keyword: keyword)
+  }
+  scope :months_before, lambda{|current_time|
+    where("created_at < ? AND created_at > ?", current_time, current_time-60*60*24*30)
   }
 
   validates :user, presence: true

@@ -24,17 +24,17 @@ RailsAdmin.config do |config|
     delete
     show_in_app
     toggle
-    bulk_toggle do
+    toggle_enable do
       visible do
         bindings[:abstract_model].model.to_s == "Post"
       end
     end
-    bulk_enable do
+    enable do
       visible do
         bindings[:abstract_model].model.to_s == "Post"
       end
     end
-    bulk_disable do
+    disable do
       visible do
         bindings[:abstract_model].model.to_s == "Post"
       end
@@ -47,16 +47,6 @@ RailsAdmin.config do |config|
       field :title
       field :content
       field :user_id
-      field :enabled, :toggle
-    end
-
-    edit do
-      configure :user do
-        visible false
-      end
-      field :title
-      field :content, :ck_editor
-      field :tags
       field :enabled, :toggle
     end
 

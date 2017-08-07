@@ -18,6 +18,6 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   resources :tags, only: :show
   get "/feed", to: "users#feed"
-  post "search", to: "search#index"
+  post "search-post", to: "search#search_post"
   post "search-user", to: "search#search_user"
 end
