@@ -1,0 +1,10 @@
+<% if @status == 200 %>
+  $('.user-delete').bind('ajax:success', function(){
+    $('#comment-<%= @comment.id%>').closest('div').fadeOut();
+    $('.number-comments-<%= @post.id %>')
+      .html('<%= escape_javascript render('comments/number_comments',\
+      post: @post) %>');
+  });
+<% else %>
+  alert('<%= t "comments.destroy.has_error" %>');
+<% end %>

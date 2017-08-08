@@ -1,0 +1,12 @@
+<% if @status == 200 %>
+  $('#post-<%= @post.id %>').modal('toggle');
+  $('.tag-list-<%= @post.id%>')
+    .html('<%= j render("tags/tag_list", post: @post) %>')
+  $('.post-content[data-id=<%= @post.id %>]')
+    .html('<%= j render("posts/update", post: @post) %>');
+<% else %>
+  $('.show-errors').html('');
+  <% @post.errors.full_messages.each do |message| %>
+    $('.show-errors').append('<li><%= message %></li>');
+  <% end %>
+<% end %>

@@ -1,0 +1,8 @@
+<% provide :title, @user.full_name %>
+<div class="col-md-9 content-main">
+  <%= render "shared/post_form", post: @post %>
+  <%= render "shared/feed", feed_items: @feed_items %>
+</div>
+<div class="col-md-3 user-side-bar">
+  <%= render "user_info", user: @user %>
+</div>

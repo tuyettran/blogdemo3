@@ -1,0 +1,35 @@
+<li class="post-li post-<%= post.id %>">
+  <div class="post-element">
+    <div class="main-content">
+      <%= image_tag post.user.avatar.url, class: "avatar-header" %>
+      <span class="user"><%= link_to post.user.full_name, post.user %></span>
+      <span class="post-content", data-id="<%= post.id %>">
+        <h2><%= link_to post.title, post %></h2>
+        <p><%= post.content.html_safe %></p>
+      </span>
+    </div>
+    <span class="tag-list tag-list-<%= post.id%> pull-right">
+      <%= render "tags/tag_list", post: post %>
+    </span>
+    <br/>
+    <span class="timestamp pull-right">
+      <i class="created-at"><%= post.created_at %></i>&nbsp;&nbsp;
+      <span class = "number-comments-<%= post.id %>">
+        <%= render "comments/number_comments", post: post %>
+      </span>
+      <% if can? :update, post %>
+        <button class="btn btn-link" data-toggle="modal" data-target="#post-<%= post.id %>"><%= t ".edit" %></button>
+        <%= render "posts/edit", post: post %>
+      <% end %>
+      <% if can? :destroy, post %>
+        <%= link_to t(".delete"), post, method: :delete, remote: true,
+          data: {confirm: t(".sure")} %>
+      <% end %>
+    </span>
+  </div>
+  <span class="list-comments-<%= post.id %>">
+  </span>
+  <% if can? :create, post.comments.build %>
+    <%= render "comments/comment_form", post: post, comment: post.comments.build %>
+  <% end %>
+</li>

@@ -1,0 +1,4 @@
+Hi, <%= @comment.post.user %>
+
+<%= @comment.user.full_name %> commented your blog :
+<%= link_to @comment.post.title, @comment.post %>

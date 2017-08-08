@@ -1,0 +1,6 @@
+<h2><%= t ".hi" %>, </h2>
+<%= t ".report_this_month" %>
+<%= t ".have" %><%= User.months_before(Time.now).size %><%= t ".new_user" %>, <%= Post.months_before(Time.now).size %><%= t ".new_post" %><%= Tag.months_before(Time.now).size %><%= t ".new_tag" %>.
+<%= t ".access_dashboard" %>
+<br/>
+<%= link_to t(".dashboard"), "http://tuyet-blogdemo3.herokuapp.com/admin" %>
