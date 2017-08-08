@@ -1,0 +1,26 @@
+<div class="modal fade" id="post-<%= post.id %>" tabindex="-1"
+   role="dialog" aria-labelledby="post-<%= post.id %>-label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <%= form_for post, remote: true do |f| %>
+          <div class="show-errors error-explanation"></div>
+          <div class="field edit-post">
+            <%= f.text_field :title, class: "form-control" %>
+            <%= f.text_area :content, class: "ckeditor" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :tags, class: "control-label bold" %>
+            <%= f.text_field :tag_list,
+              value: post.tags_name.map(&:to_s).join(', '),
+              data: {role: "tagsinput"} %>
+          </div>
+          <div><%= f.submit t("posts.show.edit"), class: "btn edit-post-btn btn-orange" %></div>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn" data-dismiss="modal"><%= t ".close" %></button>
+      </div>
+    </div>
+  </div>
+</div>

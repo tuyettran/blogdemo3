@@ -1,0 +1,10 @@
+<div class="col-md-9">
+  <% if @users.try :any? %>
+    <ol>
+      <%= render @users %>
+    </ol>
+    <%= paginate @users, theme: "twitter-bootstrap-3" %>
+  <% end %>
+</div>
+<div class="col-md-3">
+</div>

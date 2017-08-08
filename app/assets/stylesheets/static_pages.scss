@@ -1,0 +1,236 @@
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.header {
+  padding: 0 30px !important;
+}
+
+.mini-blog-logo {
+  color: $orange;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.content-form-page {
+  color: $black;
+}
+
+.content-main {
+  border-right: 1px solid $gray;
+  margin: 0;
+}
+
+.mini-blog-logo:hover {
+  color: $orange;
+  text-decoration: none;
+}
+
+.footer {
+  background-color: $white;
+  bottom: 0;
+  color: $black;
+  font-size: 15px;
+
+  a {
+    color: $blue;
+  }
+}
+
+.quote-v1 {
+  background-color: $light-gray;
+  font-size: 20px;
+  margin-top: 30px;
+  padding: 20px 30px;
+  text-align: center;
+
+  .welcome {
+    font-weight: bold;
+  }
+}
+
+.mobi-toggler:hover {
+  text-decoration: none;
+}
+
+.mobi-toggler {
+  border: 1px solid $gray;
+  font-weight: bold;
+  padding: 5px;
+  text-decoration: none;
+  width: auto;
+}
+
+.btn-orange {
+  background-color: $orange;
+  color: $white;
+}
+
+.alert-notice {
+  @include alert-variant($alert-success-bg, $alert-success-border,
+    $alert-success-text);
+}
+
+.error-explanation {
+  color: $red;
+}
+
+li {
+  list-style-type: none;
+}
+
+.body-content {
+  margin-top: 85px;
+}
+
+.submit-comment,
+.update-comment {
+  display: none;
+}
+
+.search {
+  margin: 20px 50px 0;
+  button {
+    border-radius: 0px;
+  }
+
+  input[type="text"] {
+    background-image: url('search-icon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    border: 2px solid #ccc;
+    border-right: none;
+    box-sizing: border-box;
+    font-size: 16px;
+    margin: 0;
+    height: 40px;
+    padding: 12px 20px 12px 40px;
+    transition: width 0.4s ease-in-out;
+    width: 200px;
+    -webkit-transition: width 0.4s ease-in-out;
+  }
+
+  input[type="text"]:focus {
+    width: 500px;
+  }
+
+  .submit-search {
+    border: 2px solid #ccc;
+    border-left: none;
+    margin: 0;
+    height: 40px;
+  }
+}
+
+.home-sidebar-user {
+  border-bottom: 1px solid $gray;
+  font-size: 15px;
+  margin: 0;
+
+  .stats {
+    font-size: 14px;
+  }
+
+  .user-block {
+    margin-bottom: 30px;
+  }
+}
+
+.post-form-div {
+  margin-top: 10px;
+  padding: 10px;
+  float: right;
+  height: 17px;
+
+  button {
+    margin: 10px 20px 0;
+    border-radius: 40%;
+    padding: 1px;
+    color: $white;
+    background-color: $orange;
+  }
+
+  button:active {
+    border: none;
+  }
+}
+
+.user-search-form {
+  float: right;
+  margin-bottom: 10px;
+
+  input[type="text"] {
+    height: 30px;
+    padding: 3px;
+    padding: 5px 10px 5px 10px;
+    width: 75%;
+  }
+
+  .submit-search-user {
+    background-image: url('search-icon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    height: 30px;
+    padding: 5px 10px 5px 30px;
+  }
+}
+
+.bootstrap-tagsinput {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  display: inline-block;
+  padding: 4px 6px;
+  margin-bottom: 10px;
+  color: #555;
+  vertical-align: middle;
+  border-radius: 4px;
+  max-width: 100%;
+  line-height: 22px;
+  cursor: text;
+}
+.logo {
+  float: left;
+}
+
+.post-search-form {
+  float: right;
+}
+
+.home-sidebar-tags {
+  margin-left: 2px;
+}
+
+.bootstrap-tagsinput input {
+  border: none;
+  box-shadow: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  width: auto !important;
+  max-width: inherit;
+}
+.bootstrap-tagsinput input:focus {
+  border: none;
+  box-shadow: none;
+}
+.bootstrap-tagsinput .tag {
+  margin-right: 2px;
+  color: white;
+}
+.bootstrap-tagsinput .tag [data-role="remove"] {
+  margin-left: 8px;
+  cursor: pointer;
+}
+.bootstrap-tagsinput .tag [data-role="remove"]:after {
+  content: "x";
+  padding: 0px 2px;
+}
+.bootstrap-tagsinput .tag [data-role="remove"]:hover {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.bootstrap-tagsinput .tag [data-role="remove"]:hover:active {
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+

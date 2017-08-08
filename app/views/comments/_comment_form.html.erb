@@ -1,0 +1,11 @@
+<%= form_for comment, url: post_comments_path(post, comment), remote: true do |f| %>
+  <%= f.hidden_field :post_id, value: post.id %>
+  <%= render "shared/error_messages", object: f.object %>
+  <div class="field col-md-offset-1 comment-form">
+    <%= f.text_field :content, placeholder: t(".comment"),
+      class: "form-control comment-content-input"%>
+    <div>
+      <%= f.submit t(".comment"), class: "submit-comment btn-primary" %>
+    </div>
+  </div>
+<% end %>

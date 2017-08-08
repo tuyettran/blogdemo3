@@ -1,0 +1,34 @@
+<div class="col-md-9 content-main">
+  <%= render "shared/feed", feed_items: @feed_items %>
+</div>
+<div class="col-md-3 home-sidebar">
+  <%= render "shared/post_form", post: @post %>
+  <div class="home-sidebar-block">
+    <div>
+      <h3 class="text-center"><%= t ".hot_user" %></h3>
+      <div class="user-search-form">
+        <%= form_tag search_user_path do %>
+          <%= text_field_tag :keyword, nil, placeholder: t(".user_search") %>
+          <%= submit_tag "", class: "btn btn-sm submit-search-user" %>
+        <% end %>
+      </div>
+      <div class="clearfix"></div>
+      <div class="row home-sidebar-user">
+        <% @hot_user.each do |user| %>
+          <div class="user-block">
+            <%= image_tag user.avatar.url, class: "avatar-user-list img-circle" %>
+            <div><%= link_to user.full_name, user %>
+              <p class="stats"><%= render "shared/stats", user: user %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="row home-sidebar-tags">
+      <h3 class="text-center"><%= t ".popular_tag" %></h3>
+      <% @popular_tag.each do |tag| %>
+          <%= link_to tag.name, tag, class: "btn-xs btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

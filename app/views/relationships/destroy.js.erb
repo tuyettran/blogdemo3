@@ -1,0 +1,7 @@
+<% if @status == 200 %>
+  $('#follow_form').html('<%= j render("users/follow",\
+    user: @user) %>');
+  $('.followers').html('<%= number_followers @user %><%= t ".followers" %>');
+<% else %>
+  alert('<%= t "relationships.destroy.has_error" %>');
+<% end %>

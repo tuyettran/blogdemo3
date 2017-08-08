@@ -1,0 +1,7 @@
+<% provide :title, t(".following_feed") %>
+<div class="col-md-9 content-main">
+  <%= render "shared/feed", feed_items: @feed_items %>
+</div>
+<div class="col-md-3 user-side-bar">
+  <%= render "user_info", user: current_user %>
+</div>

@@ -1,0 +1,34 @@
+.home-sidebar-block,
+.user-sidebar-block {
+  position: fixed;
+  width: 260px;
+}
+
+.stats a{
+  font-size: 12px;
+}
+
+.user-info {
+  margin-bottom: 10px;
+}
+
+.current-user-name {
+  color: $blue;
+}
+
+.avatar-header {
+  height: 30px;
+  width: 30px;
+}
+
+.avatar-user-list {
+  height: 60px;
+  width: 70px;
+  margin: 0 10px 0;
+  float: left;
+}
+
+.avatar-user-index {
+  width: 80px;
+  height: 70px;
+}

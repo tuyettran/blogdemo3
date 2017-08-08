@@ -1,0 +1,19 @@
+default: &default
+  adapter: mysql2
+  pool: 5
+  encoding: utf8
+  username: root
+  password: tuyet
+  socket: /var/run/mysqld/mysqld.sock
+
+development:
+  <<: *default
+  database: web_blog
+
+test:
+  <<: *default
+  database: web_blog
+
+production:
+  <<: *default
+  database: db/production.sqlite3
