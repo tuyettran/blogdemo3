@@ -1,0 +1,7 @@
+<% if @status == 200 %>
+  <% @post_ids.each do |post| %>
+    $('#post-detail-<%= post %>').fadeOut();
+  <% end %>
+<% else %>
+  alert('<%= t "posts.destroy.has_error" %>');
+<% end %>

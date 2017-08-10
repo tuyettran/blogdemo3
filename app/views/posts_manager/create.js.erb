@@ -1,0 +1,12 @@
+<% if @status == 200 %>
+  $('#post-new').modal('toggle');
+  $('.table-body').prepend('<%= j render("post", post: @post) %>');
+  $('.show-errors-create').html('');
+  $('.post-title').val('');
+  $('.post-content').val('');
+<% else %>
+  $('.show-errors-create').html('');
+  <% @post.errors.full_messages.each do |message| %>
+    $('.show-errors-create').append('<li><%= message %></li>');
+  <% end %>
+<% end %>
