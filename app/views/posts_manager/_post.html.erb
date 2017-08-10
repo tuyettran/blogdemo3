@@ -1,0 +1,16 @@
+<tr id="post-detail-<%= post.id %>">
+  <td class="data title-<%= post.id %>"><%= post.title %></td>
+  <td class="data content-<%= post.id %>"><%= post.content.html_safe %></td>
+  <td class="data user-<%= post.id %>"><%= post.user.full_name %></td>
+  <td class="show-btn">
+    <button class="btn btn-link" data-toggle="modal" data-target="#show-post-<%= post.id %>"><i class="glyphicon glyphicon-eye-open"></i></button>
+    <%= render "show", post: post %>
+  </td>
+  <td class="edit-btn">
+    <button class="btn btn-link" data-toggle="modal" data-target="#post-edit-<%= post.id %>"><i class="glyphicon glyphicon-pencil"></i></button>
+  </td>
+  <td class="data"><%= post.id %></td>
+  <td class="data check-box-<%= post.id %>">
+    <%= check_box_tag 'post_ids[]', post.id %>
+  </td>
+</tr>

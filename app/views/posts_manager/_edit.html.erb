@@ -1,0 +1,22 @@
+<div class="modal fade" id="post-edit-<%= post.id %>" tabindex="-1"
+   role="dialog" aria-labelledby="post-edit-<%= post.id %>-label" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-body">
+        <%= form_for post, url: posts_manager_path(post), remote: true do |f| %>
+          <div class="field">
+            <%= f.label t(".title") %> <span class="require">*</span>
+            <%= f.text_field :title, class: "form-control" %><br/>
+            <%= f.label t(".content") %> <span class="require">*</span>
+            <%= f.text_area :content, class: "ckeditor" %><br/>
+          </div>
+          <div class="show-errors-<%= post.id %> error-explanation"></div>
+          <div><%= f.submit t(".edit"), class: "btn edit-post-btn btn-orange" %></div>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn" data-dismiss="modal"><%= t ".close" %></button>
+      </div>
+    </div>
+  </div>
+</div>

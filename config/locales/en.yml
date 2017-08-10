@@ -171,3 +171,31 @@ en:
         bulk_link: "Enable selected posts"
       disable:
         bulk_link: "Disable selected posts"
+  posts_manager:
+    edit:
+      edit: "Edit"
+      user: "User: "
+      close: "Close"
+      title: "Title"
+      content: "Content"
+    new:
+      create: "create"
+      user: "User: "
+      close: "Close"
+      title: "Title"
+      content: "Content"
+    post:
+      sure: "Are you sure?"
+    show:
+      user: "User: "
+      title: "Title: "
+      content: "Content: "
+      close: "Close"
+    index:
+      user: "User"
+      title: "Title"
+      content: "Content"
+      search: "Search"
+      user_name: "User name"
+      post_content: "Post content"
+      create_post: "POST"
