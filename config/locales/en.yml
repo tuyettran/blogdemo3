@@ -171,3 +171,5 @@ en:
         bulk_link: "Enable selected posts"
       disable:
         bulk_link: "Disable selected posts"
+  posts_manager:
+    permission_denied: "You are not admin and cannot access this page"

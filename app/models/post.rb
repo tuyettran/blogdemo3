@@ -14,6 +14,19 @@ class Post < ApplicationRecord
   scope :feed_by_following, lambda{|following_ids|
     where("user_id IN (?)", following_ids).enable.order_desc
   }
+  scope :advanced_search, lambda{|post_key, user_key|
+    if user_key.blank?
+      joins(:user).where("title LIKE :post_key", post_key: post_key)
+      .select "content, user_id, title, posts.id, users.full_name as post_user"
+    elsif post_key.blank?
+      joins(:user).where("users.full_name LIKE :user_key", user_key: user_key)
+      .select "content, title, user_id, posts.id, users.full_name as post_user"
+    else
+      joins(:user).where("users.full_name LIKE :user_key AND
+        posts.title LIKE :post_key", post_key: post_key, user_key: user_key)
+        .select "content, title, user_id, posts.id, users.full_name as post_user"
+    end
+  }
   scope :search, lambda{|keyword|
     where("title LIKE :keyword
       OR content LIKE :keyword", keyword: keyword)
@@ -93,5 +106,17 @@ class Post < ApplicationRecord
 
   def content_not_blank
     errors.add :content, I18n.t("posts.content_not_blank") if strip_tags(content).blank?
+  end
+
+  class << self
+    def to_csv posts
+      column_names = %w{id title content post_user}
+      CSV.generate do |csv|
+        csv << column_names
+        posts.each do |post|
+          csv << post.attributes.values_at(*column_names)
+        end
+      end
+    end
   end
 end

@@ -1,0 +1,11 @@
+<% if @status == 200 %>
+  $('#post-edit-<%= @post.id %>').modal('toggle');
+  $('.title-<%= @post.id %>').html('<%= @post.title %>');
+  $('.user-<%= @post.id %>').html('<%= @post.user.full_name %>');
+  $('.content-<%= @post.id %>').html('<%= j render("update", post: @post) %>');
+<% else %>
+  $('.show-errors-<%= @post.id %>').html('');
+  <% @post.errors.full_messages.each do |message| %>
+    $('.show-errors-<%= @post.id %>').append('<li><%= message %></li>');
+  <% end %>
+<% end %>
