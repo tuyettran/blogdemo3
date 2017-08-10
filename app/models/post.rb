@@ -9,15 +9,30 @@ class Post < ApplicationRecord
 
   paginates_per Settings.post.per_page
 
-  scope :order_desc, ->{order created_at: :desc}
+  scope :select_order_desc, ->{select("id", "title", "content", "user_id").order created_at: :desc}
   scope :enable, ->{where "enabled = ?", true}
+
   scope :feed_by_following, lambda{|following_ids|
     where("user_id IN (?)", following_ids).enable.order_desc
   }
+
   scope :search, lambda{|keyword|
     where("title LIKE :keyword
       OR content LIKE :keyword", keyword: keyword)
   }
+
+  scope :advanced_search, lambda{|post_key, user_key|
+    if user_key.blank?
+      select_order_desc.where("title LIKE :post_key", post_key: post_key)
+    elsif post_key.blank?
+      select_order_desc.joins(:user).where("users.full_name LIKE :user_key",
+      user_key: user_key)
+    else
+      select_order_desc.joins(:user).where("users.full_name LIKE :user_key AND
+        posts.title LIKE :post_key", post_key: post_key, user_key: user_key)
+    end
+  }
+
   scope :months_before, lambda{|current_time|
     where("created_at < ? AND created_at > ?", current_time, current_time-60*60*24*30)
   }
@@ -93,5 +108,17 @@ class Post < ApplicationRecord
 
   def content_not_blank
     errors.add :content, I18n.t("posts.content_not_blank") if strip_tags(content).blank?
+  end
+
+  class << self
+    def to_csv posts
+      column_names = %w{id title content}
+      CSV.generate do |csv|
+        csv << column_names
+        posts.each do |post|
+          csv << post.attributes.values_at(*column_names)
+        end
+      end
+    end
   end
 end
