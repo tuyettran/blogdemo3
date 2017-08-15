@@ -1,0 +1,76 @@
+.posts-manager {
+  .head,
+  .data {
+    border-bottom: 1px solid $gray;
+    color: $light-blue;
+    max-width: 350px;
+    overflow: hidden;
+    padding: 8px 15px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .head {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .delete-btn,
+  .edit-btn,
+  .show-btn {
+    border-bottom: 1px solid $gray;
+    height: auto;
+    padding: 8px 5px;
+    width: 30px;
+  }
+}
+
+.post-detail {
+  .show-label {
+    color: $light-blue;
+    font-size: 18px;
+    padding: 8px 15px;
+  }
+
+  tr {
+    border-bottom: 1px solid $gray;
+  }
+}
+
+.selection{
+  span {
+    padding: 3px;
+  }
+}
+
+.posts-manager {
+  float: left;
+}
+
+.posts-manager-search,
+.post-form-btn {
+  float: left;
+}
+
+.posts-manager-search {
+  input {
+    padding: 5px;
+  }
+
+  margin-left: 20px;
+}
+
+.require {
+  color: $red;
+}
+
+.csv-link,
+.submit-bulk-destroy {
+  float: right;
+  margin-right: 30px;
+}
+
+#post_user_id {
+  margin-bottom: 10px;
+  padding: 3px;
+}

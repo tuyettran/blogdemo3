@@ -5,6 +5,8 @@
 //= require jquery_ujs
 //= require foundation
 //= require bootstrap
+//= require select2-full
+//= require select_bootstrap
 //= require_tree .
 //= require i18n
 //= require config_ckeditor
