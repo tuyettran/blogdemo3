@@ -1,0 +1,40 @@
+<button class="btn post-form-btn btn-info" data-toggle="modal"
+  data-target="#post-new" title= "<%= t "static_pages.home.new_post" %>">
+  <span class="glyphicon glyphicon-plus new-post-icon"><%= t ".create_new" %></span>
+</button>
+<%= render "new", post: @post, users: @users %>
+<%= form_tag posts_manager_index_path, method: :get, remote: true, class: "posts-manager-search" do %>
+  <%= text_field_tag :post_key, nil, placeholder: t(".post_content") %>
+  <%= text_field_tag :user_key, nil, placeholder: t(".user_name") %>
+  <%= submit_tag t(".search"), class: "btn btn-info" %>
+<% end %>
+<div class="csv-link">
+</div>
+<div class="clearfix"></div>
+<div class="post-table table-responsive">
+  <%= form_tag destroy_posts_path, class: "bulk-form", remote: true do %>
+    <%= submit_tag "Delete_ all selected", class: "submit-bulk-destroy" %>
+    <table class="table-striped posts-manager">
+      <thead>
+        <th class="head"><%= t ".title" %></th>
+        <th class="head"><%= t ".content" %></th>
+        <th class="head"><%= t ".user" %></th>
+        <th class="head"></th>
+        <th class="head"></th>
+        <th class="head"></th>
+        <th></th>
+      </thead>
+      <tbody class="table-body">
+        <% @posts.each do |post| %>
+          <%= render "post", post: post%>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+  <div class="modal-list">
+    <% @posts.each do |post| %>
+      <%= render "edit", post: post, users: @users%>
+    <% end %>
+  </div>
+  <div class="paginate pull-right"><%= render "paginate", posts: @posts %></div>
+</div>

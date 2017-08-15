@@ -1,0 +1,28 @@
+<div class="modal fade" id="show-post-<%= post.id %>" tabindex="-1"
+   role="dialog" aria-labelledby="show-post-<%= post.id %>-label" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-body">
+        <table class="post-detail">
+          <tbody>
+            <tr>
+              <td class="show-label"><%= t ".user" %></td>
+              <td><%= post.user.full_name %></td>
+            </tr>
+            <tr>
+              <td class="show-label"><%= t ".title" %></td>
+              <td><%= post.title %></td>
+            </tr>
+            <tr>
+              <td class="show-label"><%= t ".content" %></td>
+              <td><%= post.content.html_safe %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn" data-dismiss="modal"><%= t ".close" %></button>
+      </div>
+    </div>
+  </div>
+</div>
