@@ -11,11 +11,11 @@
             </tr>
             <tr>
               <td class="show-label"><%= t ".title" %></td>
-              <td><%= post.title %></td>
+              <td class="title-<%= post.id %>"><%= post.title %></td>
             </tr>
             <tr>
               <td class="show-label"><%= t ".content" %></td>
-              <td><%= post.content.html_safe %></td>
+              <td class="content-<%= post.id %>"><%= post.content.html_safe %></td>
             </tr>
           </tbody>
         </table>

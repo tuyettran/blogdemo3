@@ -199,3 +199,5 @@ en:
       user_name: "User name"
       post_content: "Post content"
       create_post: "POST"
+      delete_all: "Delete all selected"
+      id: "Id"

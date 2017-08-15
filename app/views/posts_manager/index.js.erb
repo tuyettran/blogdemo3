@@ -1,5 +1,4 @@
-$('.table-body').html('<% @posts.each do |post| %>\
-  <%= j render("post", post: post) %><% end %>');
+$('.table-body').html('<%= j render("post_list", posts: @posts)%>');
 $('.paginate').html('<%= j render("paginate", posts: @posts) %>');
 $('.csv-link').html('<%= link_to "CSV Download", \
   posts_manager_index_path(:format => :csv, :post_key =>@post_key,\

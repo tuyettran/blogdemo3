@@ -15,13 +15,16 @@
     text-align: center;
   }
 
-  .delete-btn,
   .edit-btn,
   .show-btn {
     border-bottom: 1px solid $gray;
     height: auto;
     padding: 8px 5px;
     width: 30px;
+  }
+
+  .show-btn {
+    padding-left: 50px;
   }
 }
 
@@ -39,6 +42,12 @@
 
 .selection{
   span {
+    padding: 3px;
+  }
+}
+
+.table-body {
+  button {
     padding: 3px;
   }
 }
@@ -62,6 +71,10 @@
 
 .require {
   color: $red;
+}
+
+.modal-body {
+  min-height: 450px;
 }
 
 .csv-link,
