@@ -13,7 +13,7 @@ module ResourcePost
 
   def load_post
     @post = Post.find_by id: params[:id]
-    return if @post.enabled == true
+    return if @post.try :enabled == true
     render file: "public/404"
   end
 

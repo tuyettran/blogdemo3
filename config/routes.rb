@@ -19,10 +19,9 @@ Rails.application.routes.draw do
   resources :tags, only: :show
   resources :posts_manager, only: [:index, :create, :update] do
     collection do
-      post :destroy_posts
+      delete :destroy_posts
     end
   end
-  #post "destroy-posts", to: "posts_manager#destroy_posts"
   get "/feed", to: "users#feed"
   post "search-post", to: "search#search_post"
   post "search-user", to: "search#search_user"

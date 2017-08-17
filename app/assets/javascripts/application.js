@@ -6,10 +6,11 @@
 //= require foundation
 //= require bootstrap
 //= require select2-full
-//= require select_bootstrap
+//= require posts_manager
 //= require_tree .
 //= require i18n
 //= require config_ckeditor
+
 //= require i18n/translations
 //
 //CORE PLUGINS

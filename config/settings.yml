@@ -12,7 +12,7 @@ post:
   title:
     max_length: 100
   content:
-    max_length: 3000
+    max_length: 30000
   per_page: 10
   max_tags: 10
 tag:

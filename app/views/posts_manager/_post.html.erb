@@ -1,15 +1,19 @@
-<tr id="post-detail-<%= post.id %>">
+<tr id="post-detail-<%= post.id %>" class="posts">
   <td class="data title-<%= post.id %>"><%= post.title %></td>
   <td class="data content-<%= post.id %>"><%= post.content.html_safe %></td>
   <td class="data user-<%= post.id %>"><%= post.user.full_name %></td>
   <td class="data post-id"><%= post.id %></td>
   <td class="show-btn">
-    <button class="btn btn-link" data-toggle="modal" data-target="#show-post-<%= post.id %>"><i class="glyphicon glyphicon-eye-open"></i></button>
+    <%= link_to "#show-post-#{post.id}", class: "btn btn-link", data: { toggle: "modal" } do %>
+      <i class="glyphicon glyphicon-eye-open"></i>
+    <% end %>
   </td>
   <td class="edit-btn">
-    <button class="btn btn-link" data-toggle="modal" data-target="#post-edit-<%= post.id %>"><i class="glyphicon glyphicon-pencil"></i></button>
+    <%= link_to "#post-edit-#{post.id}", class: "btn btn-link", data: { toggle: "modal" } do %>
+      <i class="glyphicon glyphicon-pencil"></i>
+    <% end %>
   </td>
   <td class="data check-box-<%= post.id %>">
-    <%= check_box_tag 'post_ids[]', post.id %>
+    <%= check_box_tag 'post_ids[]', post.id, false, class: "check-box-field" %>
   </td>
 </tr>

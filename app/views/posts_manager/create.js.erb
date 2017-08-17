@@ -1,9 +1,8 @@
 <% if @status == 200 %>
   $('#post-new').modal('toggle');
-  $('.table-body').html('<%= j render("post_list", posts: @posts) %>');
-  $('.paginate').html('<%= j render("paginate", posts: @posts) %>');
-  $('.modal-list').append('<%= j render("edit",post: @post) %>');
+  $('.table-body').prepend('<%= j render("post", post: @post) %>');
   $('.modal-list').append('<%= j render("show",post: @post) %>');
+  $('.modal-list').append('<%= j render("edit",post: @post) %>');
   $('.show-errors-create').html('');
   $('.post-title').val('');
   $('.post-content').val('');

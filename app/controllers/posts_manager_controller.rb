@@ -22,8 +22,6 @@ class PostsManagerController < ApplicationController
 
   def create
     @post = current_user.posts.build post_params
-    @posts = Post.select_order_desc.includes(:user).page(params[:page])
-            .per Settings.post.per_page
     if @post.save
       post_massage 200
     end
@@ -39,12 +37,12 @@ class PostsManagerController < ApplicationController
 
   def destroy_posts
     @post_ids = params[:post_ids]
-    @posts = Post.select_order_desc.includes(:user).page(params[:page])
-            .per Settings.post.per_page
     if Post.bulk_destroy @post_ids
       post_massage 200
     end
-    post_respond
+    respond_to do |format|
+      format.js
+    end
   end
 
   private
@@ -66,9 +64,9 @@ class PostsManagerController < ApplicationController
   end
 
   def post_search
-    @post_key = "%#{params[:post_key]}%"
-    @user_key = "%#{params[:user_key]}%"
-    @search_result = Post.advanced_search @post_key, @user_key
+    @post_key = params[:post_key]
+    @user_key = params[:user_key]
+    @search_result = Post.advanced_search "%#{@post_key}%", "%#{@user_key}%"
   end
 
   def post_massage status

@@ -201,3 +201,8 @@ en:
       create_post: "POST"
       delete_all: "Delete all selected"
       id: "Id"
+      sure: "Are you sure?"
+    search_form:
+      search: "Search"
+      user_name: "User name"
+      post_content: "Post content"

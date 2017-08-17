@@ -1,0 +1,5 @@
+<%= form_tag posts_manager_index_path, method: :get, remote: true, class: "posts-manager-search" do %>
+  <%= text_field_tag :post_key, @post_key, placeholder: t(".post_content") %>
+  <%= text_field_tag :user_key, @user_key, placeholder: t(".user_name") %>
+  <%= submit_tag t(".search"), class: "btn btn-info" %>
+<% end %>

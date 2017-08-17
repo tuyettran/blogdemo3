@@ -1,6 +1,7 @@
 <% if @status == 200 %>
-  $('.table-body').html('<%= j render("post_list", posts: @posts) %>');
-  $('.paginate').html('<%= j render("paginate", posts: @posts) %>');
+  <% @post_ids.try :each do |post| %>
+    $('#post-detail-<%= post %>').fadeOut();
+  <% end %>
 <% else %>
   alert('<%= t "posts.destroy.has_error" %>');
 <% end %>

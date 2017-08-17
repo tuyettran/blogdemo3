@@ -3,17 +3,13 @@
   <span class="glyphicon glyphicon-plus new-post-icon"><%= t ".create_new" %></span>
 </button>
 <%= render "new", post: @post, users: @users %>
-<%= form_tag posts_manager_index_path, method: :get, remote: true, class: "posts-manager-search" do %>
-  <%= text_field_tag :post_key, nil, placeholder: t(".post_content") %>
-  <%= text_field_tag :user_key, nil, placeholder: t(".user_name") %>
-  <%= submit_tag t(".search"), class: "btn btn-info" %>
-<% end %>
+<span class="search_form"><%= render "search_form" %></span>
 <div class="csv-link">
 </div>
 <div class="clearfix"></div>
 <div class="post-table">
-  <%= form_tag destroy_posts_posts_manager_index_path, class: "bulk-form", remote: true do %>
-    <%= submit_tag "Delete_ all selected", class: "submit-bulk-destroy" %>
+  <%= form_tag destroy_posts_posts_manager_index_path, method: :delete, data: {confirm: t(".sure")}, class: "bulk-form", remote: true do %>
+    <%= submit_tag "Delete all selected", class: "submit-bulk-destroy pull-right" %>
     <table class="table-striped posts-manager">
       <thead>
         <th class="head"><%= t ".title" %></th>
@@ -32,10 +28,7 @@
     </table>
   <% end %>
   <div class="modal-list">
-    <% @posts.each do |post| %>
-      <%= render "edit", post: post %>
-      <%= render "show", post: post %>
-    <% end %>
+    <%= render "modal_list", posts: Post.all %>
   </div>
   <div class="paginate pull-right"><%= render "paginate", posts: @posts %></div>
 </div>
